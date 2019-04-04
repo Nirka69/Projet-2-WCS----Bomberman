@@ -1,14 +1,63 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Bomberman1</title>
-  <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="HTML5 game written in JavaScript with Angular">
+
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/styles.scss" />
+
+    <title>AngularJs BomberWild</title>
 </head>
+
 <body>
-  <app-root></app-root>
+    <div class="container">
+        <div class="page-header">
+            <h1>Bomber<strong>Wild</strong></h1>
+        </div>
+        <div id="game">
+        <table bombermap></table>
+        </div>
+        <div>
+            <h3>How to play</h3>
+            <hr>
+            <h4>Player 1</h4>
+            <ul>
+                <li><strong>Arrow keys</strong> &hellip; move</li>
+                <li><strong>Spacebar / alt</strong> &hellip; plant the bomb</li>
+            </ul>
+            <h4>Player 2</h4>
+            <ul>
+                <li><strong>W, A, S, D</strong> &hellip; move</li>
+                <li><strong>Shift</strong> &hellip; plant the bomb</li>
+            </ul>
+            <h4>Extra</h4>
+            <ul>
+                <li><strong>M</strong> &hellip; mute / unmute sound</li>
+                <li><strong>Enter</strong> &hellip; stop / restart</li>
+                <li><strong>Escape</strong> &hellip; menu</li>
+            </ul>
+            <hr>
+            <h5>Contributor</h4>
+            <p><strong>Wild Code School Student:</strong> Michaël M, Davut K, Anthony I, Benjamin P, Eliott B </p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
