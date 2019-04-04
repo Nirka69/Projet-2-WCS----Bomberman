@@ -2,18 +2,43 @@
 .wrapper {
     max-width: 351px;
     min-width: 320px;
-    margin: 0  ;
+    margin: 0 ;
 }
 
 .wrapper > div { //tout les div dans wrapper
     // border: 1px solid black;
-    background-image: url(../../assets/img/tile_grass.png);
     height: 32px;
     width: 32px;
+    margin-top: 0;  
 }.wrapper {
     display: grid;
     grid-template-columns: repeat(17, 1fr);
     grid-auto-rows: minmax(auto, auto);
+}
+
+.sol
+{
+    background-image: url(../../assets/img/floorGreen.jpg);
+}
+.mur_haut
+{
+    background-image: url(../../assets/img/wallThree.jpg);
+}
+.mur_bas
+{
+    background-image: url(../../assets/img/wallThree.jpg);
+}
+.mur_gauche
+{
+    background-image: url(../../assets/img/mur-droite.jpg);
+}
+.mur_droite
+{
+    background-image: url(../../assets/img/mur-droite.jpg);
+}
+.mur_centre
+{
+    background-image: url(../../assets/img/PierreWall.jpg);
 }
 
 
