@@ -5,8 +5,8 @@
   display: grid;
   grid-template-columns: repeat(17, 32px);
   grid-template-rows: repeat(13, 32px);
+  z-index: 50;
 }
-
 
 .sol {
   background-image: url(../../assets/img/floorGreen.jpg);
@@ -283,4 +283,186 @@
   background-image: url(../../assets/img/PierreWall.jpg);
   grid-row: 11;
   grid-column: 15;
+}
+
+
+
+
+/* MUR DESTRUCTIBLE */
+
+.mur_destructible1 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 2;
+  grid-column: 4;
+  
+
+}
+
+.mur_destructible2 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 2;
+  grid-column: 5;
+}
+
+.mur_destructible3 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 2;
+  grid-column: 8;
+}
+
+.mur_destructible4 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 2;
+  grid-column: 11;
+}
+
+.mur_destructible5 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 2;
+  grid-column: 12;
+}
+
+.mur_destructible6 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 2;
+  grid-column: 13;
+}
+
+.mur_destructible7 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 2;
+  grid-column: 12;
+}
+
+.mur_destructible8 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 3;
+  grid-column: 8;
+}
+
+.mur_destructible9 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 3;
+  grid-column: 12;
+}
+
+.mur_destructible10 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 4;
+  grid-column: 2;
+}
+
+.mur_destructible11 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 4;
+  grid-column: 4;
+}
+
+.mur_destructible12 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 4;
+  grid-column: 5;
+}
+
+.mur_destructible13 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 4;
+  grid-column: 7;
+}
+
+.mur_destructible14 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 4;
+  grid-column: 9;
+}
+
+.mur_destructible15 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 4;
+  grid-column: 10;
+}
+
+.mur_destructible16 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 4;
+  grid-column: 12;
+}
+
+.mur_destructible17 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 4;
+  grid-column: 14;
+}
+
+.mur_destructible18 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 4;
+  grid-column: 15;
+}
+
+.mur_destructible19 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 4;
+  grid-column: 16;
+}
+
+.mur_destructible20 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 6;
+  grid-column: 2;
+}
+
+.mur_destructible21 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 6;
+  grid-column: 4;
+}
+
+.mur_destructible22 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 6;
+  grid-column: 5;
+}
+
+.mur_destructible23 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 6;
+  grid-column: 6;
+}
+
+.mur_destructible24 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 6;
+  grid-column: 14;
+}
+
+.mur_destructible25 {
+  background-image: url(../../assets/img/Box.jpg);
+  padding: 16px;
+  grid-row: 6;
+  grid-column: 16;
 }
