@@ -1,49 +1,61 @@
 body{
     color: #37474f;
+    font-family: 'Gloria Hallelujah', cursive;
  }
 
  .container {
-    width: 545px;
+    
     align-items: center;
     font-family: 'Gloria Hallelujah', cursive;
 }
 
+.backi {
+    background: url(../assets/img/imagefond.jpg) no-repeat center fixed;
+   background-size: cover;
+
+}
+
 .page-header{
 text-align: center;
+padding-top: 40px;
+
 }
 
 #game {
     margin: auto;
     text-align: center;
-    width:545px;
-    height:416px;
-    background-color: black;
+    height:35rem;
+    background-color: rgb(218, 218, 218);
+    border: 10px solid white;
 }
 
-h1 {
-    line-height: 64px;
-    margin-bottom: 0;
-    font-family: 'Gloria Hallelujah', cursive;
-}
-
-h1 strong {
-    color: #f47676;
+.text{
+    margin: auto;
+    text-align: center;   
+    justify-content: center; 
 }
 
 h3{
     padding-top: 20px;
     color: #273238;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 h4{
+    font-size: 20px;
     color: #273238;
+    font-family: 'Gloria Hallelujah', cursive;
 }
-
-h5{
-    font-size: 12px;
-}
-
 p{
     font-size: 12px;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
+}
+ 
+li{
+    font-size: 12px;
+    font-family: 'Gloria Hallelujah', cursive;
+    color:white;
+    list-style-type: none;
 }
  
