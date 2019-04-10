@@ -31,7 +31,7 @@ export class MapComponent implements OnInit {
     powerUp: true
   };
 
-  0 = this.border;
+  0 = this.border.textureUrl;
   1 = this.floor;
   2 = this.wallFix;
   3 = this.wallDestructible;
