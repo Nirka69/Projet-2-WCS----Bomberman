@@ -2,9 +2,9 @@
   justify-content: center;
   display: grid;
   grid-template-columns: repeat(17, 32px);
-  grid-template-rows: repeat(13, 32px);
-  
- 
+  grid-template-rows: repeat(13, 32px); 
+  border: 10px solid white;
+  width:564px;
 }
 
 .sol {
