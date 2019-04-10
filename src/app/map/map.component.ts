@@ -8,33 +8,33 @@ import { Component, OnInit } from '@angular/core';
 export class MapComponent implements OnInit {
 
   border = {
-    textureUrl: "../assets/img/PierreWall.jpg",
+    textureUrl: "/assets/img/PierreWall.jpg",
     breakable: false,
     powerUp: false
   };
 
   floor = {
-    textureUrl: "",
+    textureUrl: "/assets/img/Floor1.jpg",
     breakable: false,
     powerUp: false
   };
 
   wallFix = {
-    textureUrl: "",
+    textureUrl: "/assets/img/Pierrewall.jpg",
     breakable: false,
     powerUp: false
   };
 
   wallDestructible = {
-    textureUrl: "",
+    textureUrl: "/assets/img/Box.jpg",
     breakable: true,
     powerUp: true
   };
 
-  0 = this.border.textureUrl;
-  1 = this.floor;
-  2 = this.wallFix;
-  3 = this.wallDestructible;
+  textures= [this.border,
+  this.floor,
+  this.wallFix,
+  this.wallDestructible];
 
   map =
     [
