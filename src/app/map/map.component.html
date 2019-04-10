@@ -1,5 +1,9 @@
 
-
+ <div *ngFor="let row of map">
+        <div *ngFor="let case of row">
+            <img [src]="textures[case].textureUrl" class="test"/>
+        </div>
+ </div>
 
 
 
