@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,67 +9,67 @@ import { Component, OnInit } from '@angular/core';
 export class MapComponent implements OnInit {
 
   floor = {
-    textureUrl: "/assets/img/Floor1.jpg",
+    textureUrl: "/assets/img/sol.jpg",
     breakable: false,
     powerUp: false
   };
 
   wallFix = {
-    textureUrl: "/assets/img/Pierrewall.jpg",
+    textureUrl: "/assets/img/mur.png",
     breakable: false,
     powerUp: false
   };
 
   wallDestructible = {
-    textureUrl: "/assets/img/Box.jpg",
+    textureUrl: "/assets/img/caisse_bois.jpg",
     breakable: true,
     powerUp: true
   };
 
   borderTopLeft = {
-    textureUrl: "/assets/img/Pierrewall.jpg",
+    textureUrl: "/assets/img/haut_gauche.jpg",
     breakable: false,
     powerUp: false
   };
 
   borderTop = {
-    textureUrl: "/assets/img/Pierrewall.jpg",
+    textureUrl: "/assets/img/haut.jpg",
     breakable: false,
     powerUp: false
   };
 
   borderTopRight = {
-    textureUrl: "/assets/img/Pierrewall.jpg",
+    textureUrl: "/assets/img/haut_droite.jpg",
     breakable: false,
     powerUp: false
   };
 
   borderRight = {
-    textureUrl: "/assets/img/Pierrewall.jpg",
+    textureUrl: "/assets/img/droite.jpg",
     breakable: false,
     powerUp: false
   };
 
   borderBotRight = {
-    textureUrl: "/assets/img/Pierrewall.jpg",
+    textureUrl: "/assets/img/bas_droite.jpg",
     breakable: false,
     powerUp: false
   };
 
   borderBot = {
-    textureUrl: "/assets/img/Pierrewall.jpg",
+    textureUrl: "/assets/img/bas.jpg",
     breakable: false,
     powerUp: false
   };
 
   borderBotLeft = {
-    textureUrl: "/assets/img/Pierrewall.jpg",
+    textureUrl: "/assets/img/bas_gauche.jpg",
     breakable: false,
     powerUp: false
   };
 
   borderLeft = {
-    textureUrl: "/assets/img/Pierrewall.jpg",
+    textureUrl: "/assets/img/gauche.jpg",
     breakable: false,
     powerUp: false
   };
