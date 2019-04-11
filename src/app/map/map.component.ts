@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { url } from 'inspector';
 
 @Component({
   selector: 'app-map',
@@ -6,7 +7,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-
+  
+  border = {
+    textureUrl: "",
+    breakable: false,
+    powerUp: false
+  };
+ 
+  floor = {
+    textureUrl: "",
+    breakable: false,
+    powerUp: false
+  };
+ 
+  wallFix = {
+    textureUrl: "",
+    breakable: false,
+    powerUp: false
+  };
+ 
+  wallDestructible = {
+    textureUrl: "",
+    breakable: true,
+    powerUp: true
+  };
+ 
+  0 = this.border;
+  1 = this.floor;
+  2 = this.wallFix;
+  3 = this.wallDestructible;
   map = 
   [
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -31,5 +60,5 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
 }
