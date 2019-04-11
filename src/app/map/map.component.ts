@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { url } from 'inspector';
 
 @Component({
   selector: 'app-map',
@@ -113,5 +114,5 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
 }
