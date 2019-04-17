@@ -7,10 +7,11 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class CharacterComponent implements OnInit {
 
-  @HostListener("window:keydown", [('$event')])
 
-  move(event:KeyboardEvent) {
-    event.preventDefault()
+  @HostListener('window:keydown', [('$event')])
+
+  move(event: KeyboardEvent) {
+    event.preventDefault();
 
     if (event.keyCode === 38) {
       console.log('up');
@@ -23,24 +24,31 @@ export class CharacterComponent implements OnInit {
     }
     if (event.keyCode === 37) {
       console.log('left');
+      this.increment();
     }
-    
   }
 
-  @HostListener("window:keyup", [('$event')])
+  @HostListener('window:keyup', [('$event')])
 
-  stopmove(event:KeyboardEvent) {
-    event.preventDefault()
+  stopmove(event: KeyboardEvent) {
+    event.preventDefault();
 
     if (event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40 || event.keyCode === 37 ) {
       console.log('stop');
     }
-    
+
   }
 
-  constructor() { }
+constructor( ) { }
 
-  ngOnInit() {
+
+
+
+increment() {
+
+}
+
+ngOnInit() {
   }
 
 }

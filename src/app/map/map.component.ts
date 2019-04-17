@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
+
   floor = {
     textureUrl: '/assets/img/sol.jpg',
     breakable: false,
