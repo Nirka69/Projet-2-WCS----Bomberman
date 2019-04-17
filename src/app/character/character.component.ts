@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener} from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-character',
@@ -7,38 +7,40 @@ import { Component, OnInit, HostListener} from '@angular/core';
 })
 export class CharacterComponent implements OnInit {
 
+  @HostListener("window:keydown", [('$event')])
+
+  move(event:KeyboardEvent) {
+    event.preventDefault()
+
+    if (event.keyCode === 38) {
+      console.log('up');
+    }
+    if (event.keyCode === 39) {
+      console.log('right');
+    }
+    if (event.keyCode === 40) {
+      console.log('down');
+    }
+    if (event.keyCode === 37) {
+      console.log('left');
+    }
+    
+  }
+
+  @HostListener("window:keyup", [('$event')])
+
+  stopmove(event:KeyboardEvent) {
+    event.preventDefault()
+
+    if (event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40 || event.keyCode === 37 ) {
+      console.log('stop');
+    }
+    
+  }
+
   constructor() { }
 
   ngOnInit() {
   }
 
-
-  @HostListener('window :keyDown', ['$event']) moveCharacter(a) {
-
-    const keyCode = a.keyCode;
-
-    switch (keyCode) {
-
-      // perso 1
-
-      case 37:
-      alert('ok' + '37');
-      break;
-
-      case 38:
-      alert('ok' + '38');
-      break;
-
-      case 39:
-      alert('ok' + '39');
-      break;
-
-      case 40:
-      alert('ok' + '40');
-      break;
-
-        // perso 2
-    }
-
-  }
 }
