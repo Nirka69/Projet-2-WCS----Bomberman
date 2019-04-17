@@ -106,22 +106,5 @@ export class MapComponent implements OnInit {
     [9, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 7]
   ];
 
-/*   private nbColonne = 23;
-  private nbLigne = 17;
-  private tableauMur = [];
-
-  constructor() {
-    for (let i = 0; i < this.nbLigne; i++) {
-      const gridRow = i + 1;
-
-      for (let j = 0; j < this.nbColonne; j++) {
-        const gridColumn = j + 1;
-
-        this.tableauMur.push([gridRow, gridColumn]);
-      }
-    }
-    console.log(this.tableauMur);
-  } */
-
   ngOnInit() {}
 }
