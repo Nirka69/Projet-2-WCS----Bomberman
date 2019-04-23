@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_BOT, MOVE_LEFT } from '../game-state.service';
+import { GameloopService } from '../gameloop.service';
 
 @Component({
   selector: 'app-character',
@@ -7,24 +9,32 @@ import { Component, OnInit, HostListener } from '@angular/core';
 })
 export class CharacterComponent implements OnInit {
 
+  public refresh: any;
+  public move: any;
+
+  constructor(public gs: GameStateService, public gameloop: GameloopService) { }
+
 
   @HostListener('window:keydown', [('$event')])
 
-  move(event: KeyboardEvent) {
+  moves(event: KeyboardEvent) {
     event.preventDefault();
 
     if (event.keyCode === 38) {
       console.log('up');
+      this.gs.move = MOVE_TOP;
     }
     if (event.keyCode === 39) {
       console.log('right');
+      this.gs.move = MOVE_RIGHT;
     }
     if (event.keyCode === 40) {
       console.log('down');
+      this.gs.move = MOVE_BOT;
     }
     if (event.keyCode === 37) {
       console.log('left');
-      this.increment();
+      this.gs.move = MOVE_LEFT;
     }
   }
 
@@ -33,22 +43,16 @@ export class CharacterComponent implements OnInit {
   stopmove(event: KeyboardEvent) {
     event.preventDefault();
 
-    if (event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40 || event.keyCode === 37 ) {
+    if (event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40 || event.keyCode === 37) {
       console.log('stop');
+      this.gs.move = 0;
     }
 
   }
 
-constructor( ) { }
+  ngOnInit() {
 
-
-
-
-increment() {
-
-}
-
-ngOnInit() {
+    this.gameloop.play();
   }
 
 }

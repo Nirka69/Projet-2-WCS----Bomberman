@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 
-
 export const MOVE_TOP = 1;
 export const MOVE_RIGHT = 2;
 export const MOVE_BOT = 3;
@@ -15,23 +14,21 @@ export const BONUS_BOMB_NUMBER = 8;
 })
 export class GameStateService {
 
-  character = {
-    player: [],
-    bomb_Number: [],
-    bomb_Power: [],
-    move_Speed: []
-  }
+  charX = 0;
+  charY = 0;
+  public move: any = 0;
 
-  player = [
+
+  /* player = [
     { id: 'perso1', src: '' },
     { id: 'perso2', src: '' },
     { id: 'perso3', src: '' },
     { id: 'perso4', src: '' }
   ];
 
-  bomb_Number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  bomb_Power = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  move_Speed = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  bombNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  bombPower = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  moveSpeed = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; */
 
   constructor() {
 
