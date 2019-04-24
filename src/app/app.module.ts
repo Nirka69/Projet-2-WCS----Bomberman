@@ -7,6 +7,9 @@ import { MapComponent } from './map/map.component';
 import { GameComponent } from './game/game.component';
 import { CharacterComponent } from './character/character.component';
 import { GameStateService } from './game-state.service';
+import { GameloopService } from './gameloop.service';
+
+
 
 @NgModule({
   declarations: [
@@ -14,12 +17,14 @@ import { GameStateService } from './game-state.service';
     MapComponent,
     GameComponent,
     CharacterComponent
+
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [GameStateService],
+  providers: [GameStateService, GameloopService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
