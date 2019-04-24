@@ -17,9 +17,7 @@ export class GameStateService {
 
   character = {
     player: [],
-    bomb_Number: [],
-    bomb_Power: [],
-    move_Speed: []
+   
   }
 
   player = [
