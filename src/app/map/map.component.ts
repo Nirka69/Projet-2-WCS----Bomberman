@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { GameStateService } from '../game-state.service';
 
 @Component({
   selector: 'app-map',
@@ -110,7 +111,7 @@ export class MapComponent implements OnInit {
       [9, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 7]
     ];
 
-  constructor() { }
+  constructor(private gs : GameStateService) { }
 
   ngOnInit() {
   }
