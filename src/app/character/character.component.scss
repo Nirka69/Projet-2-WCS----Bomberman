@@ -3,9 +3,9 @@
     position: absolute;
     width: 32px;
     height: 32px;
-    background-image: url('/assets/img/georgeSTAY.png');
-    animation: playerStand 1.2s infinite steps(1);
-} 
+    background-image: url('/assets/img/georgeBOTTOM.png');
+    animation: playerMove 1.2s infinite steps(1);
+}
 
 .playerTOP{
     position: absolute;
@@ -57,7 +57,7 @@
     }
 
     from {
-        background-position: -192px;
+        background-position: -129px;
     }
 }
 
@@ -67,7 +67,7 @@
     }
 
     from {
-        background-position: -192px;
+        background-position: -129px;
     }
 }
 
@@ -77,7 +77,7 @@
     }
 
     from {
-        background-position: -192px;
+        background-position: -129px;
     }
 }
 
@@ -87,7 +87,7 @@
     }
 
     from {
-        background-position: -192px;
+        background-position: -129px;
     }
 }
 
