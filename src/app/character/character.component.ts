@@ -8,18 +8,18 @@ import { GameloopService } from '../gameloop.service';
   styleUrls: ['./character.component.scss']
 })
 export class CharacterComponent implements OnInit {
-  
+
   public refresh: any;
   public move: any;
-  
+
   constructor(public gs: GameStateService, public gameloop: GameloopService) { }
-  
-  
+
+
   @HostListener('window:keydown', [('$event')])
-  
+
   moves(event: KeyboardEvent) {
     event.preventDefault();
-    
+
     if (event.keyCode === 38) {
       console.log('up');
       this.gs.move = MOVE_TOP;
@@ -36,30 +36,29 @@ export class CharacterComponent implements OnInit {
       console.log('left');
       this.gs.move = MOVE_LEFT;
     }
-    if(event.keyCode === 32)
-    {
-      console.log('bomb')
+    if (event.keyCode === 32) {
+      console.log('bomb');
       this.gs.bomb = DROP_BOMB;
     }
-    
+
   }
-  
+
   @HostListener('window:keyup', [('$event')])
-  
+
   stopmove(event: KeyboardEvent) {
     event.preventDefault();
-    
+
     if (event.keyCode === 38 || event.keyCode === 39 || event.keyCode === 40 || event.keyCode === 37) {
       console.log('stop');
       this.gs.move = 0;
     }
-    
+
   }
-  
-  
+
+
   ngOnInit() {
-    
+
     this.gameloop.play();
   }
-  
+
 }

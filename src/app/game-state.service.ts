@@ -19,7 +19,7 @@ export class GameStateService {
   charY = 1;
   move: number;
   bomb = 0;
-  bombList : Bomb[] = [];
+  bombList: Bomb[] = [];
 
 
   /* player = [
