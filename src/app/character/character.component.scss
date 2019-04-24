@@ -8,11 +8,19 @@
 
 
 .player {
+<<<<<<< HEAD
   position: absolute;
   width: 32px;
   height: 32px;
   background-image: url('/assets/img/georgeSTAY.png');
   animation: playerMove 1.2s infinite steps(1);
+=======
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url('/assets/img/georgeBOTTOM.png');
+    animation: playerMove 1.2s infinite steps(1);
+>>>>>>> dev
 }
 
 .playerRIGHT {
@@ -56,9 +64,15 @@
     background-position: 0px;
   }
 
+<<<<<<< HEAD
   from {
     background-position: -192px;
   }
+=======
+    from {
+        background-position: -129px;
+    }
+>>>>>>> dev
 }
 
 @keyframes playerRight {
@@ -66,9 +80,15 @@
     background-position: 0px;
   }
 
+<<<<<<< HEAD
   from {
     background-position: -192px;
   }
+=======
+    from {
+        background-position: -129px;
+    }
+>>>>>>> dev
 }
 
 @keyframes playerBottom {
@@ -76,9 +96,15 @@
     background-position: 0px;
   }
 
+<<<<<<< HEAD
   from {
     background-position: -192px;
   }
+=======
+    from {
+        background-position: -129px;
+    }
+>>>>>>> dev
 }
 
 @keyframes playerLeft {
@@ -86,9 +112,15 @@
     background-position: 0px;
   }
 
+<<<<<<< HEAD
   from {
     background-position: -192px;
   }
+=======
+    from {
+        background-position: -129px;
+    }
+>>>>>>> dev
 }
 
 @keyframes playerUp {
@@ -96,7 +128,13 @@
     background-position: 0px;
   }
 
+<<<<<<< HEAD
   from {
     background-position: -192px;
   }
+=======
+    from {
+        background-position: -129px;
+    }
+>>>>>>> dev
 }

@@ -3,4 +3,7 @@
         <img [src]="textures[column].textureUrl"/>
     </div>
 </div>
+<div class="bomb" *ngFor="let bomb of gs.bombList" [ngStyle]="{'top.px': bomb.positionY* 32, 'left.px':
+bomb.positionX * 32}">
+</div>
 

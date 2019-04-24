@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_BOT, MOVE_LEFT } from '../game-state.service';
+import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_BOT, MOVE_LEFT, DROP_BOMB } from '../game-state.service';
 import { GameloopService } from '../gameloop.service';
 
 @Component({
@@ -36,6 +36,11 @@ export class CharacterComponent implements OnInit {
       console.log('left');
       this.gs.move = MOVE_LEFT;
     }
+    if (event.keyCode === 32) {
+      console.log('bomb');
+      this.gs.bomb = DROP_BOMB;
+    }
+
   }
 
   @HostListener('window:keyup', [('$event')])
@@ -49,6 +54,7 @@ export class CharacterComponent implements OnInit {
     }
 
   }
+
 
   ngOnInit() {
 
