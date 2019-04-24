@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-import { Component, OnInit, HostListener, Input } from '@angular/core';
-
-=======
 import { Component, OnInit, HostListener } from '@angular/core';
 import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_BOT, MOVE_LEFT } from '../game-state.service';
 import { GameloopService } from '../gameloop.service';
->>>>>>> dev
 
 @Component({
   selector: 'app-character',
@@ -14,17 +9,6 @@ import { GameloopService } from '../gameloop.service';
 })
 export class CharacterComponent implements OnInit {
 
-<<<<<<< HEAD
- 
-  valuelf=0;
-  valuehb=0;
-  constructor() { }
-
-  @HostListener("window:keydown", [('$event')])
-  move(event:KeyboardEvent) {
-    event.preventDefault()
-    
-=======
   public refresh: any;
   public move: any;
 
@@ -36,7 +20,6 @@ export class CharacterComponent implements OnInit {
   moves(event: KeyboardEvent) {
     event.preventDefault();
 
->>>>>>> dev
     if (event.keyCode === 38) {
       this.decrementhb();
       console.log('up');
@@ -69,47 +52,11 @@ export class CharacterComponent implements OnInit {
       this.gs.move = 0;
     }
 
-<<<<<<< HEAD
-  incrementlf(){
-    this.valuelf+=32;
-    if(this.valuelf >=672){
-      this.valuelf +=-32
-    }
-    console.log(this.valuelf);
-  }
-
-  incrementhb(){
-    this.valuehb+=32;
-    if(this.valuehb >=448){
-      this.valuehb +=-32}
-    console.log(this.valuehb);
-  }
-  
-  decrementlf(){
-    this.valuelf-=32;
-    if(this.valuelf <=0){
-      this.valuelf +=32}
-    console.log(this.valuelf);
-  }
-  
-  decrementhb(){
-    this.valuehb-=32;
-    if(this.valuehb <=0){
-      this.valuehb +=32}
-    console.log(this.valuehb);
-  }
-  
-  
-
-  ngOnInit() {
-    
-=======
   }
 
   ngOnInit() {
 
     this.gameloop.play();
->>>>>>> dev
   }
 
  
