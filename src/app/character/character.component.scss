@@ -1,22 +1,21 @@
-/* #guy {
-  position: absolute;
-  background-image: url("/assets/img/bomberman.png");
-  height: 32px;
-  width: 32px;
-} */
 
-
-
-.player {
+ .playerSTAND{
     position: absolute;
     width: 32px;
     height: 32px;
     background-image: url('/assets/img/georgeSTAY.png');
-    animation: playerMove 1.2s infinite steps(1);
+    animation: playerStand 1.2s infinite steps(1);
+} 
+
+.playerTOP{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-image: url('/assets/img/georgeUP.png');
+    animation: playerTop 1.2s infinite steps(4);
 }
 
-.playerRIGHT {
-
+.playerRIGHT{
     position: absolute;
     width: 32px;
     height: 32px;
@@ -24,17 +23,15 @@
     animation: playerRight 1.2s infinite steps(4);
 }
 
-.playerBOTTOM {
-    
+.playerBOT{
     position: absolute;
     width: 32px;
     height: 32px;
     background-image: url('/assets/img/georgeBOTTOM.png');
-    animation: playerBottom 1.2s infinite steps(4);
+    animation: playerBot 1.2s infinite steps(4);
 }
 
-.playerLEFT {
-
+.playerLEFT{
     position: absolute;
     width: 32px;
     height: 32px;
@@ -42,16 +39,19 @@
     animation: playerLeft 1.2s infinite steps(4);
 }
 
-.playerUP {
 
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    background-image: url('/assets/img/georgeUP.png');
-    animation: playerUp 1.2s infinite steps(4);
+
+@keyframes playerStand {
+    to {
+        background-position: 0px;
+    }
+
+    from {
+        background-position: -100px;
+    }
 }
 
-@keyframes playerMove {
+@keyframes playerTop{
     to {
         background-position: 0px;
     }
@@ -71,7 +71,7 @@
     }
 }
 
-@keyframes playerBottom {
+@keyframes playerBot {
     to {
         background-position: 0px;
     }
@@ -91,12 +91,4 @@
     }
 }
 
-@keyframes playerUp {
-    to {
-        background-position: 0px;
-    }
 
-    from {
-        background-position: -192px;
-    }
-}

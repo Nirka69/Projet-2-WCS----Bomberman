@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+export const MOVE_STAND = 0;
 export const MOVE_TOP = 1;
 export const MOVE_RIGHT = 2;
 export const MOVE_BOT = 3;
@@ -33,7 +34,5 @@ export class GameStateService {
   constructor() {
   }
 
-  setMove(state: number) {
-    this.move = state;
-  }
+  
 }
