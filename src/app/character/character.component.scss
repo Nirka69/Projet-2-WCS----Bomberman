@@ -8,95 +8,95 @@
 
 
 .player {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    background-image: url('/assets/img/georgeSTAY.png');
-    animation: playerMove 1.2s infinite steps(1);
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-image: url('/assets/img/georgeSTAY.png');
+  animation: playerMove 1.2s infinite steps(1);
 }
 
 .playerRIGHT {
 
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    background-image: url('/assets/img/georgeRIGHT.png');
-    animation: playerRight 1.2s infinite steps(4);
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-image: url('/assets/img/georgeRIGHT.png');
+  animation: playerRight 1.2s infinite steps(4);
 }
 
 .playerBOTTOM {
-    
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    background-image: url('/assets/img/georgeBOTTOM.png');
-    animation: playerBottom 1.2s infinite steps(4);
+
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-image: url('/assets/img/georgeBOTTOM.png');
+  animation: playerBottom 1.2s infinite steps(4);
 }
 
 .playerLEFT {
 
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    background-image: url('/assets/img/georgeLEFT.png');
-    animation: playerLeft 1.2s infinite steps(4);
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-image: url('/assets/img/georgeLEFT.png');
+  animation: playerLeft 1.2s infinite steps(4);
 }
 
 .playerUP {
 
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    background-image: url('/assets/img/georgeUP.png');
-    animation: playerUp 1.2s infinite steps(4);
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-image: url('/assets/img/georgeUP.png');
+  animation: playerUp 1.2s infinite steps(4);
 }
 
 @keyframes playerMove {
-    to {
-        background-position: 0px;
-    }
+  to {
+    background-position: 0px;
+  }
 
-    from {
-        background-position: -192px;
-    }
+  from {
+    background-position: -192px;
+  }
 }
 
 @keyframes playerRight {
-    to {
-        background-position: 0px;
-    }
+  to {
+    background-position: 0px;
+  }
 
-    from {
-        background-position: -192px;
-    }
+  from {
+    background-position: -192px;
+  }
 }
 
 @keyframes playerBottom {
-    to {
-        background-position: 0px;
-    }
+  to {
+    background-position: 0px;
+  }
 
-    from {
-        background-position: -192px;
-    }
+  from {
+    background-position: -192px;
+  }
 }
 
 @keyframes playerLeft {
-    to {
-        background-position: 0px;
-    }
+  to {
+    background-position: 0px;
+  }
 
-    from {
-        background-position: -192px;
-    }
+  from {
+    background-position: -192px;
+  }
 }
 
 @keyframes playerUp {
-    to {
-        background-position: 0px;
-    }
+  to {
+    background-position: 0px;
+  }
 
-    from {
-        background-position: -192px;
-    }
+  from {
+    background-position: -192px;
+  }
 }
