@@ -9,46 +9,46 @@
 
 .player {
     position: absolute;
-    width: 48px;
-    height: 57px;
+    width: 32px;
+    height: 32px;
     background-image: url('/assets/img/georgeSTAY.png');
-    animation: playerMove 0.7s infinite steps(4);
+    animation: playerMove 1.2s infinite steps(1);
 }
 
 .playerRIGHT {
 
     position: absolute;
-    width: 48px;
-    height: 57px;
+    width: 32px;
+    height: 32px;
     background-image: url('/assets/img/georgeRIGHT.png');
-    animation: playerRight 0.7s infinite steps(4);
+    animation: playerRight 1.2s infinite steps(4);
 }
 
 .playerBOTTOM {
     
     position: absolute;
-    width: 48px;
-    height: 57px;
+    width: 32px;
+    height: 32px;
     background-image: url('/assets/img/georgeBOTTOM.png');
-    animation: playerBottom 0.7s infinite steps(4);
+    animation: playerBottom 1.2s infinite steps(4);
 }
 
 .playerLEFT {
 
     position: absolute;
-    width: 48px;
-    height: 57px;
+    width: 32px;
+    height: 32px;
     background-image: url('/assets/img/georgeLEFT.png');
-    animation: playerLeft 0.7s infinite steps(4);
+    animation: playerLeft 1.2s infinite steps(4);
 }
 
 .playerUP {
 
     position: absolute;
-    width: 48px;
-    height: 57px;
+    width: 32px;
+    height: 32px;
     background-image: url('/assets/img/georgeUP.png');
-    animation: playerUp 0.7s infinite steps(4);
+    animation: playerUp 1.2s infinite steps(4);
 }
 
 @keyframes playerMove {

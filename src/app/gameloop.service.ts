@@ -1,6 +1,6 @@
 import { Injectable, HostListener } from '@angular/core';
 import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_LEFT, MOVE_BOT } from './game-state.service';
-import { MapComponent } from './map/map.component';
+import { MapService } from './map.service';
 
 
 @Injectable({
@@ -9,35 +9,32 @@ import { MapComponent } from './map/map.component';
 export class GameloopService {
 
 
-  constructor(public gamestateservice: GameStateService) { }
+  constructor(public gamestateservice: GameStateService, private mapService: MapService) { }
 
   goMove() {
 
     if (this.gamestateservice.move === MOVE_RIGHT) {
-      this.gamestateservice.charX += 32;
-      if (this.gamestateservice.move >= 672) {
-        this.gamestateservice.charX -= 32;
+      if (this.gamestateservice.charX < this.mapService.rowLength - 2) {
+      this.gamestateservice.charX += 1;
       }
     }
 
     if (this.gamestateservice.move === MOVE_LEFT) {
-      this.gamestateservice.charX -= 32;
-      if (this.gamestateservice.move <= 0) {
-        this.gamestateservice.charX += 32;
-      }
+      if (this.gamestateservice.charX > this.mapService.rowLength - 22) {
+        this.gamestateservice.charX -= 1;
+        }
     }
     if (this.gamestateservice.move === MOVE_TOP) {
-      this.gamestateservice.charY -= 32;
-      if (this.gamestateservice.move <= 0) {
-        this.gamestateservice.charY += 32;
+      if (this.gamestateservice.charY > this.mapService.colLength - 16) {
+        this.gamestateservice.charY -= 1;
+        }
 
-      }
     }
     if (this.gamestateservice.move === MOVE_BOT) {
-      this.gamestateservice.charY += 32;
-      if (this.gamestateservice.move >= 448) {
-        this.gamestateservice.charY -= 32;
-      }
+      if (this.gamestateservice.charY < this.mapService.colLength - 2) {
+        this.gamestateservice.charY += 1;
+        }
+
     } else {
       this.gamestateservice.move = 0;
 

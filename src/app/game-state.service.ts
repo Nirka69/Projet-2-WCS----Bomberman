@@ -14,8 +14,8 @@ export const BONUS_BOMB_NUMBER = 8;
 })
 export class GameStateService {
 
-  charX : number = 15;
-  charY : number = 35;
+  charX = 1;
+  charY = 1;
   move: number;
 
 
