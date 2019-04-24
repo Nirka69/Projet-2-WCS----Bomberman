@@ -1,9 +1,24 @@
-<div [ngClass]="{
-        'playerSTAND': gs.move === 0,
-        'playerTOP': gs.move === 1,
-        'playerRIGHT': gs.move === 2,
-        'playerBOT': gs.move === 3,
-        'playerLEFT': gs.move === 4
-        }" [ngStyle]="{'top.px': gs.charY * 32, 'left.px':
-        gs.charX * 32}">
-</div>
+
+<div id="player1" [ngClass]="{
+        'playerSTAND': gs.player1.move === 0,
+        'playerTOP': gs.player1.move === 1,
+        'playerRIGHT': gs.player1.move === 2,
+        'playerBOT': gs.player1.move === 3,
+        'playerLEFT': gs.player1.move === 4
+        
+        }" [ngStyle]="{'top.px': gs.player1.charY * 32, 'left.px':
+        gs.player1.charX * 32}"
+         >
+</div> 
+
+<div id="player2" [ngClass]="{
+        
+        'playerSTAND2': gs.player2.move === 0,   
+        'playerTOP2': gs.player2.move === 10,
+        'playerRIGHT2': gs.player2.move === 11,
+        'playerBOT2': gs.player2.move === 12,
+        'playerLEFT2': gs.player2.move === 13
+        }" [ngStyle]="{'top.px': gs.player2.charY * 32, 'left.px':
+        gs.player2.charX * 32}"
+         >
+</div> 

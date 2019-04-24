@@ -92,3 +92,95 @@
 }
 
 
+.playerSTAND2{
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    background-image: url('/assets/img/bettydown.png');
+    animation: playerStand2 1.2s infinite steps(1);
+}
+
+.playerTOP2{
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    background-image: url('/assets/img/bettyup.png');
+    animation: playerTop2 1.2s infinite steps(4);
+}
+
+.playerRIGHT2{
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    background-image: url('/assets/img/bettyright.png');
+    animation: playerRight2 1.2s infinite steps(4);
+}
+
+.playerBOT2{
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    background-image: url('/assets/img/bettydown.png');
+    animation: playerBot2 1.2s infinite steps(4);
+}
+
+.playerLEFT2{
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    background-image: url('/assets/img/bettyleft.png');
+    animation: playerLeft2 1.2s infinite steps(4);
+}
+
+
+
+@keyframes playerStand2 {
+    to {
+        background-position: 0px;
+    }
+
+    from {
+        background-position: -100px;
+    }
+}
+
+@keyframes playerTop2{
+    to {
+        background-position: 0px;
+    }
+
+    from {
+        background-position: -129px;
+    }
+}
+
+@keyframes playerRight2 {
+    to {
+        background-position: 0px;
+    }
+
+    from {
+        background-position: -129px;
+    }
+}
+
+@keyframes playerBot2 {
+    to {
+        background-position: 0px;
+    }
+
+    from {
+        background-position: -129px;
+    }
+}
+
+@keyframes playerLeft2 {
+    to {
+        background-position: 0px;
+    }
+
+    from {
+        background-position: -129px;
+    }
+}
+
