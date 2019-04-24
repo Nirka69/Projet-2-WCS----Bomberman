@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Bomb } from './models/bomb';
 
 export const MOVE_TOP = 1;
 export const MOVE_RIGHT = 2;
@@ -17,6 +18,8 @@ export class GameStateService {
   charX = 1;
   charY = 1;
   move: number;
+  bomb = 0;
+  bombList : Bomb[] = [];
 
 
   /* player = [
