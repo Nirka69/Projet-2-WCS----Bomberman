@@ -7,10 +7,6 @@ import { MapComponent } from './map/map.component';
   providedIn: 'root'
 })
 export class GameloopService {
-  public move: number;
-
-
-
 
 
   constructor(public gamestateservice: GameStateService) { }
@@ -18,32 +14,32 @@ export class GameloopService {
   goMove() {
 
     if (this.gamestateservice.move === MOVE_RIGHT) {
-      this.move += 32;
-      if (this.move >= 672) {
-        this.move -= 32;
+      this.gamestateservice.charX += 32;
+      if (this.gamestateservice.move >= 672) {
+        this.gamestateservice.charX -= 32;
       }
     }
 
     if (this.gamestateservice.move === MOVE_LEFT) {
-      this.move -= 32;
-      if (this.move <= 0) {
-        this.move += 32;
+      this.gamestateservice.charX -= 32;
+      if (this.gamestateservice.move <= 0) {
+        this.gamestateservice.charX += 32;
       }
     }
     if (this.gamestateservice.move === MOVE_TOP) {
-      this.move -= 32;
-      if (this.move <= 0) {
-        this.move += 32;
+      this.gamestateservice.charY -= 32;
+      if (this.gamestateservice.move <= 0) {
+        this.gamestateservice.charY += 32;
 
       }
     }
     if (this.gamestateservice.move === MOVE_BOT) {
-      this.move += 32;
-      if (this.move >= 448) {
-        this.move -= 32;
+      this.gamestateservice.charY += 32;
+      if (this.gamestateservice.move >= 448) {
+        this.gamestateservice.charY -= 32;
       }
     } else {
-      this.move = 0;
+      this.gamestateservice.move = 0;
 
     }
 

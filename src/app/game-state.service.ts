@@ -14,9 +14,9 @@ export const BONUS_BOMB_NUMBER = 8;
 })
 export class GameStateService {
 
-  charX = 0;
-  charY = 0;
-  public move: any = 0;
+  charX : number = 15;
+  charY : number = 35;
+  move: number;
 
 
   /* player = [
@@ -31,6 +31,9 @@ export class GameStateService {
   moveSpeed = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; */
 
   constructor() {
+  }
 
+  setMove(state: number) {
+    this.move = state;
   }
 }

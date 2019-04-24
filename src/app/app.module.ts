@@ -8,6 +8,7 @@ import { GameComponent } from './game/game.component';
 import { CharacterComponent } from './character/character.component';
 import { GameStateService } from './game-state.service';
 import { GameloopService } from './gameloop.service';
+import { CoordinatesPipe } from './coordinates.pipe';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { GameloopService } from './gameloop.service';
     AppComponent,
     MapComponent,
     GameComponent,
-    CharacterComponent
+    CharacterComponent,
+    CoordinatesPipe
 
   ],
   imports: [
