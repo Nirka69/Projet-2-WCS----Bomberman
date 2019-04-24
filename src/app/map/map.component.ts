@@ -8,68 +8,69 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
+
   floor = {
-    textureUrl: "/assets/img/sol.jpg",
+    textureUrl: '/assets/img/sol.jpg',
     breakable: false,
     powerUp: false
   };
 
   wallFix = {
-    textureUrl: "/assets/img/mur.png",
+    textureUrl: '/assets/img/mur.png',
     breakable: false,
     powerUp: false
   };
 
   wallDestructible = {
-    textureUrl: "/assets/img/caisse_bois.jpg",
+    textureUrl: '/assets/img/caisse_bois.jpg',
     breakable: true,
     powerUp: true
   };
 
   borderTopLeft = {
-    textureUrl: "/assets/img/haut_gauche.jpg",
+    textureUrl: '/assets/img/haut_gauche.jpg',
     breakable: false,
     powerUp: false
   };
 
   borderTop = {
-    textureUrl: "/assets/img/haut.jpg",
+    textureUrl: '/assets/img/haut.jpg',
     breakable: false,
     powerUp: false
   };
 
   borderTopRight = {
-    textureUrl: "/assets/img/haut_droite.jpg",
+    textureUrl: '/assets/img/haut_droite.jpg',
     breakable: false,
     powerUp: false
   };
 
   borderRight = {
-    textureUrl: "/assets/img/droite.jpg",
+    textureUrl: '/assets/img/droite.jpg',
     breakable: false,
     powerUp: false
   };
 
   borderBotRight = {
-    textureUrl: "/assets/img/bas_droite.jpg",
+    textureUrl: '/assets/img/bas_droite.jpg',
     breakable: false,
     powerUp: false
   };
 
   borderBot = {
-    textureUrl: "/assets/img/bas.jpg",
+    textureUrl: '/assets/img/bas.jpg',
     breakable: false,
     powerUp: false
   };
 
   borderBotLeft = {
-    textureUrl: "/assets/img/bas_gauche.jpg",
+    textureUrl: '/assets/img/bas_gauche.jpg',
     breakable: false,
     powerUp: false
   };
 
   borderLeft = {
-    textureUrl: "/assets/img/gauche.jpg",
+    textureUrl: '/assets/img/gauche.jpg',
     breakable: false,
     powerUp: false
   };
@@ -108,7 +109,6 @@ export class MapComponent implements OnInit {
       [10, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 6],
       [9, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 7]
     ];
-//
 
   constructor() { }
 
