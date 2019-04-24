@@ -11,7 +11,7 @@
     position: absolute;
     width: 32px;
     height: 32px;
-    background-image: url('/assets/img/georgeSTAY.png');
+    background-image: url('/assets/img/georgeBOTTOM.png');
     animation: playerMove 1.2s infinite steps(1);
 }
 
@@ -45,7 +45,7 @@
 .playerUP {
 
     position: absolute;
-    width: 32px;
+    width: 129px;
     height: 32px;
     background-image: url('/assets/img/georgeUP.png');
     animation: playerUp 1.2s infinite steps(4);
@@ -57,7 +57,7 @@
     }
 
     from {
-        background-position: -192px;
+        background-position: -129px;
     }
 }
 
@@ -67,7 +67,7 @@
     }
 
     from {
-        background-position: -192px;
+        background-position: -129px;
     }
 }
 
@@ -77,7 +77,7 @@
     }
 
     from {
-        background-position: -192px;
+        background-position: -129px;
     }
 }
 
@@ -87,7 +87,7 @@
     }
 
     from {
-        background-position: -192px;
+        background-position: -129px;
     }
 }
 
@@ -97,6 +97,6 @@
     }
 
     from {
-        background-position: -192px;
+        background-position: -129px;
     }
 }
