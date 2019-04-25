@@ -47,7 +47,7 @@ export class CharacterComponent implements OnInit {
       this.gs.player1.bomb = DROP_BOMB;
     }
 
-    if (event.keyCode === 65) {
+    if (event.keyCode === 90) {
 
       console.log('up');
       this.gs.player2.move = MOVE_TOP2;
@@ -57,7 +57,7 @@ export class CharacterComponent implements OnInit {
       console.log('right');
       this.gs.player2.move = MOVE_RIGHT2;
     }
-    if (event.keyCode === 87) {
+    if (event.keyCode === 83) {
 
       console.log('down');
       this.gs.player2.move = MOVE_BOT2;
