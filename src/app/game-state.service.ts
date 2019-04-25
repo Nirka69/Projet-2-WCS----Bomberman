@@ -15,8 +15,8 @@ export const BONUS_BOMB_NUMBER = 8;
 })
 export class GameStateService {
 
-  charX = 1;
-  charY = 1;
+  charX : number = 1 ;
+  charY : number = 1 ;
   move: number;
   bomb = 0;
   bombList : Bomb[] = [];

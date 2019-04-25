@@ -1,4 +1,4 @@
-import { Injectable, HostListener } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_LEFT, MOVE_BOT, DROP_BOMB } from './game-state.service';
 import { MapService } from './map.service';
 import { Bomb } from './models/bomb';
@@ -10,34 +10,33 @@ import { Bomb } from './models/bomb';
 export class GameloopService {
   
   
-  constructor(public gamestateservice: GameStateService, private mapService: MapService) { }
+  constructor(public gs: GameStateService, private mapService: MapService) { }
   
   goMove() {
     
-    if (this.gamestateservice.move === MOVE_RIGHT) {
-      if (this.gamestateservice.charX < this.mapService.rowLength - 2) {
-        this.gamestateservice.charX += 1;
+    if (this.gs.move === MOVE_RIGHT) {
+      if (this.gs.charX < this.mapService.rowLength - 2 && this.mapService.map[this.gs.charY][this.gs.charX +1] === 1  ){
+          this.gs.charX += 1;
       }
     }
-    
-    if (this.gamestateservice.move === MOVE_LEFT) {
-      if (this.gamestateservice.charX > this.mapService.rowLength - 22) {
-        this.gamestateservice.charX -= 1;
+    if (this.gs.move === MOVE_LEFT) {
+      if (this.gs.charX > this.mapService.rowLength - 22 && this.mapService.map[this.gs.charY][this.gs.charX -1] === 1 ) {
+        this.gs.charX -= 1;
       }
     }
-    if (this.gamestateservice.move === MOVE_TOP) {
-      if (this.gamestateservice.charY > this.mapService.colLength - 16) {
-        this.gamestateservice.charY -= 1;
+    if (this.gs.move === MOVE_TOP) {
+      if (this.gs.charY > this.mapService.colLength - 16 && this.mapService.map[this.gs.charY -1][this.gs.charX] === 1 ) {
+        this.gs.charY -= 1;
       }
       
     }
-    if (this.gamestateservice.move === MOVE_BOT) {
-      if (this.gamestateservice.charY < this.mapService.colLength - 2) {
-        this.gamestateservice.charY += 1;
+    if (this.gs.move === MOVE_BOT) {
+      if (this.gs.charY < this.mapService.colLength - 2 && this.mapService.map[this.gs.charY +1][this.gs.charX] === 1 ) {
+        this.gs.charY += 1;
       }
       
     } else {
-      this.gamestateservice.move = 0;
+      this.gs.move = 0;
       
     }
     
@@ -52,11 +51,11 @@ export class GameloopService {
   }
   
   dropBomb() {
-    if(this.gamestateservice.bomb === DROP_BOMB)
+    if(this.gs.bomb === DROP_BOMB)
     {
-      let bomb = new Bomb(this.gamestateservice.charX, this.gamestateservice.charY, new Date(), 1, 0)
-      this.gamestateservice.bombList.push(bomb)
-      this.gamestateservice.bomb = 0;
+      let bomb = new Bomb(this.gs.charX, this.gs.charY, new Date(), 1, 0)
+      this.gs.bombList.push(bomb)
+      this.gs.bomb = 0;
     }
   }
   
@@ -64,15 +63,15 @@ export class GameloopService {
   {
     let keptList = []
     let now = new Date()
-    for(let i = 0; i < this.gamestateservice.bombList.length; i++)
+    for(let i = 0; i < this.gs.bombList.length; i++)
     {
-      let bomb = this.gamestateservice.bombList[i];
+      let bomb = this.gs.bombList[i];
       if( now.getTime() - bomb.date.getTime() <= 3000)
       {
         keptList.push(bomb);
       }
     }
-    this.gamestateservice.bombList = keptList;
+    this.gs.bombList = keptList;
   }
   
   play() {
