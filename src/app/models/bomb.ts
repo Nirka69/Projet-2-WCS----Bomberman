@@ -5,6 +5,4 @@ export class Bomb {
     public date: Date, 
     public power = 1, 
     public playerId: number) {}
-
-
 }
