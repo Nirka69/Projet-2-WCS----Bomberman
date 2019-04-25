@@ -113,13 +113,13 @@ export class GameloopService {
     }
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.gs.player2.bombList.length; i++) {
-      const bomb2 = this.gs.player2.bombList[i];
-      const duration = (now.getTime() - bomb2.date.getTime());
+      const bomb = this.gs.player2.bombList[i];
+      const duration = (now.getTime() - bomb.date.getTime());
       if (duration <= 3000) {
         if (duration >= 2500) {
-          bomb2.explosion = true;
+          bomb.explosion = true;
         }
-        keptList2.push(bomb2);
+        keptList2.push(bomb);
       }
     }
     this.gs.player1.bombList = keptList;
