@@ -1,4 +1,4 @@
-import { Injectable, HostListener } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_LEFT, MOVE_BOT, DROP_BOMB, MOVE_RIGHT2, MOVE_LEFT2, MOVE_TOP2, MOVE_BOT2, DROP_BOMB2 } from './game-state.service';
 import { MapService } from './map.service';
 import { Bomb } from './models/bomb';
@@ -10,58 +10,58 @@ import { Bomb } from './models/bomb';
 export class GameloopService {
   
   
-  constructor(public gamestateservice: GameStateService, private mapService: MapService) { }
+  constructor(public gs: GameStateService, private mapService: MapService) { }
   
   goMove() {
     
-    if (this.gamestateservice.player1.move === MOVE_RIGHT) {
-      if (this.gamestateservice.player1.charX < this.mapService.rowLength - 2) {
-        this.gamestateservice.player1.charX += 1;
+    if (this.gs.player1.move === MOVE_RIGHT) {
+      if (this.gs.player1.charX < this.mapService.rowLength - 2 && this.mapService.map[this.gs.player1.charY][this.gs.player1.charX +1] === 1 ) {
+        this.gs.player1.charX += 1;
       }
     }
 
-    if (this.gamestateservice.player2.move === MOVE_RIGHT2) {
-      if (this.gamestateservice.player2.charX < this.mapService.rowLength - 2) {
-        this.gamestateservice.player2.charX += 1;
+    if (this.gs.player2.move === MOVE_RIGHT2) {
+      if (this.gs.player2.charX < this.mapService.rowLength - 2 && this.mapService.map[this.gs.player2.charY][this.gs.player2.charX +1] === 1 ) {
+        this.gs.player2.charX += 1;
       }
     }
     
-    if (this.gamestateservice.player1.move === MOVE_LEFT) {
-      if (this.gamestateservice.player1.charX > this.mapService.rowLength - 22) {
-        this.gamestateservice.player1.charX -= 1;
+    if (this.gs.player1.move === MOVE_LEFT) {
+      if (this.gs.player1.charX > this.mapService.rowLength - 22 && this.mapService.map[this.gs.player1.charY][this.gs.player1.charX -1] === 1 ) {
+        this.gs.player1.charX -= 1;
       }
     }
-    if (this.gamestateservice.player2.move === MOVE_LEFT2) {
-      if (this.gamestateservice.player2.charX > this.mapService.rowLength - 22) {
-        this.gamestateservice.player2.charX -= 1;
+    if (this.gs.player2.move === MOVE_LEFT2) {
+      if (this.gs.player2.charX > this.mapService.rowLength - 22 && this.mapService.map[this.gs.player2.charY][this.gs.player2.charX -1] === 1 ) {
+        this.gs.player2.charX -= 1;
       }
     }
 
-    if (this.gamestateservice.player1.move === MOVE_TOP) {
-      if (this.gamestateservice.player1.charY > this.mapService.colLength - 16) {
-        this.gamestateservice.player1.charY -= 1;
+    if (this.gs.player1.move === MOVE_TOP) {  
+      if (this.gs.player1.charY > this.mapService.colLength - 16 && this.mapService.map[this.gs.player1.charY -1][this.gs.player1.charX] === 1 ) {
+        this.gs.player1.charY -= 1;
       }
       
     }
-    if (this.gamestateservice.player2.move === MOVE_TOP2) {
-      if (this.gamestateservice.player2.charY > this.mapService.colLength - 16) {
-        this.gamestateservice.player2.charY -= 1;
+    if (this.gs.player2.move === MOVE_TOP2) {
+      if (this.gs.player2.charY > this.mapService.colLength - 16 && this.mapService.map[this.gs.player2.charY -1][this.gs.player2.charX] === 1 ) {
+        this.gs.player2.charY -= 1;
       }
       
     }
-    if (this.gamestateservice.player2.move === MOVE_BOT2) {
-      if (this.gamestateservice.player2.charY < this.mapService.colLength - 2) {
-        this.gamestateservice.player2.charY += 1;
+    if (this.gs.player2.move === MOVE_BOT2) {
+      if (this.gs.player2.charY < this.mapService.colLength - 2 && this.mapService.map[this.gs.player2.charY +1][this.gs.player2.charX] === 1 ) {
+        this.gs.player2.charY += 1;
       }  
     }
-    if (this.gamestateservice.player1.move === MOVE_BOT) {
-      if (this.gamestateservice.player1.charY < this.mapService.colLength - 2) {
-        this.gamestateservice.player1.charY += 1;
+    if (this.gs.player1.move === MOVE_BOT) {
+      if (this.gs.player1.charY < this.mapService.colLength - 2 && this.mapService.map[this.gs.player1.charY +1][this.gs.player1.charX] === 1 ) {
+        this.gs.player1.charY += 1;
       }  
     } 
     else {
-      this.gamestateservice.player1.move = 0;
-      this.gamestateservice.player2.move = 0;
+      this.gs.player1.move = 0;
+      this.gs.player2.move = 0;
       
     }
     
@@ -76,17 +76,17 @@ export class GameloopService {
   }
   
   dropBomb() {
-    if(this.gamestateservice.player1.bomb === DROP_BOMB)
+    if(this.gs.player1.bomb === DROP_BOMB)
     {
-      let bomb = new Bomb(this.gamestateservice.player1.charX, this.gamestateservice.player1.charY, new Date(), 1, 0)
-      this.gamestateservice.player1.bombList.push(bomb)
-      this.gamestateservice.player1.bomb = 0;
+      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), 1, 0)
+      this.gs.player1.bombList.push(bomb)
+      this.gs.player1.bomb = 0;
     }
-    if(this.gamestateservice.player2.bomb === DROP_BOMB2)
+    if(this.gs.player2.bomb === DROP_BOMB2)
     {
-      let bomb2 = new Bomb(this.gamestateservice.player2.charX, this.gamestateservice.player2.charY, new Date(), 1, 0)
-      this.gamestateservice.player2.bombList.push(bomb2)
-      this.gamestateservice.player2.bomb = 0;
+      let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), 1, 0)
+      this.gs.player2.bombList.push(bomb2)
+      this.gs.player2.bomb = 0;
     }
   }
    
@@ -95,24 +95,24 @@ export class GameloopService {
     let keptList = []
     let keptList2 = []
     let now = new Date()
-    for(let i = 0; i < this.gamestateservice.player1.bombList.length; i++)
+    for(let i = 0; i < this.gs.player1.bombList.length; i++)
     {
-      let bomb = this.gamestateservice.player1.bombList[i];
+      let bomb = this.gs.player1.bombList[i];
       if( now.getTime() - bomb.date.getTime() <= 3000)
       {
         keptList.push(bomb);
       }
     }
-    for(let i = 0; i < this.gamestateservice.player2.bombList.length; i++)
+    for(let i = 0; i < this.gs.player2.bombList.length; i++)
     {
-      let bomb2 = this.gamestateservice.player2.bombList[i];
+      let bomb2 = this.gs.player2.bombList[i];
       if( now.getTime() - bomb2.date.getTime() <= 3000)
       {
         keptList2.push(bomb2);
       }
     }
-    this.gamestateservice.player1.bombList = keptList;
-    this.gamestateservice.player2.bombList = keptList2;
+    this.gs.player1.bombList = keptList;
+    this.gs.player2.bombList = keptList2;
   }
   
   play() {

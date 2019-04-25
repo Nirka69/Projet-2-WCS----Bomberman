@@ -13,13 +13,14 @@ export class MapComponent implements OnInit {
   floor = {
     textureUrl: '/assets/img/sol.jpg',
     breakable: false,
-    powerUp: false
+    powerUp: false,
+    move : true
   };
 
   wallFix = {
     textureUrl: '/assets/img/mur.png',
     breakable: false,
-    powerUp: false
+    powerUp: false,
   };
 
   wallDestructible = {
