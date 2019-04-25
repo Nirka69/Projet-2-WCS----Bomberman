@@ -14,7 +14,7 @@ export class MapComponent implements OnInit {
     textureUrl: '/assets/img/sol.jpg',
     breakable: false,
     powerUp: false,
-    move : true
+    move: true
   };
 
   wallFix = {
@@ -112,9 +112,9 @@ export class MapComponent implements OnInit {
       [9, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 7]
     ];
 
-  constructor(private gs : GameStateService) { }
+  constructor(private gs: GameStateService) { }
 
   ngOnInit() {
   }
-  
+
 }
