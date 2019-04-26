@@ -1,5 +1,6 @@
 export class Bomb {
 
+
     constructor(public positionX: number,
                 public positionY: number,
                 public date: Date,
