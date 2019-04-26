@@ -2,6 +2,7 @@ import { Injectable} from '@angular/core';
 import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_LEFT, MOVE_BOT, DROP_BOMB, MOVE_RIGHT2, MOVE_LEFT2, MOVE_TOP2, MOVE_BOT2, DROP_BOMB2 } from './game-state.service';
 import { MapService } from './map.service';
 import { Bomb } from './models/bomb';
+import { MapComponent } from './map/map.component';
 
 
 @Injectable({
