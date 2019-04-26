@@ -5,7 +5,29 @@
 .bomb
 {
     position: absolute;
-    height: 31px;
-    width: 31px;
-    background-image: url(../../assets/img/bomb.png); 
+    height: 32px;
+    width: 32px;
+    background-image: url(../../assets/img/bombdelay.png);
+    animation: bombdelay 3s steps(5) 
+    
+
 }
+
+.explosionB
+{
+    height: 32px;
+    width: 32px;   
+    background-image: url(../../assets/img/explosion.png) !important;
+    
+}
+
+@keyframes bombdelay{
+    to {
+        background-position: 0px;
+    }
+
+    from {
+        background-position: 160px;
+    }
+}
+
