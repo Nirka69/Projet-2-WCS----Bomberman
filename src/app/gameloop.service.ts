@@ -13,6 +13,14 @@ export class GameloopService {
 
   constructor(public gs: GameStateService, private mapService: MapService) { }
 
+  loop() {
+    this.goMove();
+    this.dropBomb();
+    this.boom();
+    requestAnimationFrame(() => this.loop());
+  }
+
+
   goMove() {
 
     if (this.gs.player1.move === MOVE_RIGHT) {
@@ -76,12 +84,7 @@ export class GameloopService {
 
   }
 
-  loop() {
-    this.goMove();
-    this.dropBomb();
-    this.boom();
-    requestAnimationFrame(() => this.loop());
-  }
+
 
   dropBomb() {
     if (this.gs.player1.bomb === DROP_BOMB) {
@@ -103,14 +106,22 @@ export class GameloopService {
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.gs.player1.bombList.length; i++) {
       const bomb = this.gs.player1.bombList[i];
-      if (now.getTime() - bomb.date.getTime() <= 3000) {
+      const duration = (now.getTime() - bomb.date.getTime());
+      if (duration <= 3000) {
+        if (duration >= 2500) {
+          bomb.explosion = true;
+        }
         keptList.push(bomb);
       }
     }
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.gs.player2.bombList.length; i++) {
       const bomb2 = this.gs.player2.bombList[i];
-      if (now.getTime() - bomb2.date.getTime() <= 3000) {
+      const duration = (now.getTime() - bomb2.date.getTime());
+      if (duration <= 3000) {
+        if (duration >= 2500) {
+          bomb2.explosion = true;
+        }
         keptList2.push(bomb2);
       }
     }

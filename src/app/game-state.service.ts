@@ -62,5 +62,8 @@ player2={
   constructor() {
   }
 
+  setMove(state: number) {
+    this.move = state;
+  }
   
 }
