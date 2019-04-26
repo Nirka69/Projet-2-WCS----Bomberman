@@ -22,11 +22,11 @@ export const DROP_BOMB2 = 14;
 })
 export class GameStateService {
 
-  charX = 1;
-  charY = 1;
+  
   move: number;
   bomb = 0;
   bombList: Bomb[] = [];
+  
 
   player1 = {
     charX: 1,
@@ -34,6 +34,7 @@ export class GameStateService {
     move: 0,
     bomb: 0,
     bombList: [],
+    breakablet: true
   };
 
 
@@ -43,9 +44,10 @@ export class GameStateService {
     move: 0,
     bomb: 0,
     bombList: [],
+    breakablet: true
   };
 
-
+  players = [this.player1, this.player2];
 
 
   /* player = [
