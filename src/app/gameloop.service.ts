@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-// tslint:disable-next-line:max-line-length
 import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_LEFT, MOVE_BOT, DROP_BOMB, MOVE_RIGHT2, MOVE_LEFT2, MOVE_TOP2, MOVE_BOT2, DROP_BOMB2 } from './game-state.service';
 import { MapService } from './map.service';
 import { Bomb } from './models/bomb';
-import { MapComponent } from './map/map.component';
-import { getPlayers } from '@angular/core/src/render3/players';
 
 
 
@@ -28,54 +25,46 @@ export class GameloopService {
   goMove() {
 
     if (this.gs.player1.move === MOVE_RIGHT) {
-      // tslint:disable-next-line:max-line-length
       if (this.gs.player1.charX < this.mapService.rowLength - 2 && this.mapService.map[this.gs.player1.charY][this.gs.player1.charX + 1] === 1) {
         this.gs.player1.charX += 1;
       }
     }
 
     if (this.gs.player2.move === MOVE_RIGHT2) {
-      // tslint:disable-next-line:max-line-length
       if (this.gs.player2.charX < this.mapService.rowLength - 2 && this.mapService.map[this.gs.player2.charY][this.gs.player2.charX + 1] === 1) {
         this.gs.player2.charX += 1;
       }
     }
 
     if (this.gs.player1.move === MOVE_LEFT) {
-      // tslint:disable-next-line:max-line-length
       if (this.gs.player1.charX > this.mapService.rowLength - 22 && this.mapService.map[this.gs.player1.charY][this.gs.player1.charX - 1] === 1) {
         this.gs.player1.charX -= 1;
       }
     }
     if (this.gs.player2.move === MOVE_LEFT2) {
-      // tslint:disable-next-line:max-line-length
       if (this.gs.player2.charX > this.mapService.rowLength - 22 && this.mapService.map[this.gs.player2.charY][this.gs.player2.charX - 1] === 1) {
         this.gs.player2.charX -= 1;
       }
     }
 
     if (this.gs.player1.move === MOVE_TOP) {
-      // tslint:disable-next-line:max-line-length
       if (this.gs.player1.charY > this.mapService.colLength - 16 && this.mapService.map[this.gs.player1.charY - 1][this.gs.player1.charX] === 1) {
         this.gs.player1.charY -= 1;
       }
 
     }
     if (this.gs.player2.move === MOVE_TOP2) {
-      // tslint:disable-next-line:max-line-length
       if (this.gs.player2.charY > this.mapService.colLength - 16 && this.mapService.map[this.gs.player2.charY - 1][this.gs.player2.charX] === 1) {
         this.gs.player2.charY -= 1;
       }
 
     }
     if (this.gs.player2.move === MOVE_BOT2) {
-      // tslint:disable-next-line:max-line-length
       if (this.gs.player2.charY < this.mapService.colLength - 2 && this.mapService.map[this.gs.player2.charY + 1][this.gs.player2.charX] === 1) {
         this.gs.player2.charY += 1;
       }
     }
     if (this.gs.player1.move === MOVE_BOT) {
-      // tslint:disable-next-line:max-line-length
       if (this.gs.player1.charY < this.mapService.colLength - 2 && this.mapService.map[this.gs.player1.charY + 1][this.gs.player1.charX] === 1) {
         this.gs.player1.charY += 1;
       }
@@ -106,9 +95,7 @@ export class GameloopService {
   boom() {
     const keptList = [];
     const keptList2 = [];
-    const now = new Date();
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.gs.player1.bombList.length; i++) {
+    const now = new Date();    for (let i = 0; i < this.gs.player1.bombList.length; i++) {
       const bomb = this.gs.player1.bombList[i];
       const duration = (now.getTime() - bomb.date.getTime());
       if (duration <= 3000) {
@@ -194,7 +181,6 @@ export class GameloopService {
         keptList.push(bomb);
       }
     }
-    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.gs.player2.bombList.length; i++) {
       const bomb2 = this.gs.player2.bombList[i];
       const duration = (now.getTime() - bomb2.date.getTime());
