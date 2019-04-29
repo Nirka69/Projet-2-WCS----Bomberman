@@ -24,54 +24,54 @@ export class GameloopService {
   goMove() {
 
     if (this.gs.player1.move === MOVE_RIGHT) {
-      // tslint:disable-next-line:max-line-length
+      
       if (this.gs.player1.charX < this.mapService.rowLength - 2 && this.mapService.map[this.gs.player1.charY][this.gs.player1.charX + 1] === 1) {
         this.gs.player1.charX += 1;
       }
     }
 
     if (this.gs.player2.move === MOVE_RIGHT2) {
-      // tslint:disable-next-line:max-line-length
+      
       if (this.gs.player2.charX < this.mapService.rowLength - 2 && this.mapService.map[this.gs.player2.charY][this.gs.player2.charX + 1] === 1) {
         this.gs.player2.charX += 1;
       }
     }
 
     if (this.gs.player1.move === MOVE_LEFT) {
-      // tslint:disable-next-line:max-line-length
+      
       if (this.gs.player1.charX > this.mapService.rowLength - 22 && this.mapService.map[this.gs.player1.charY][this.gs.player1.charX - 1] === 1) {
         this.gs.player1.charX -= 1;
       }
     }
     if (this.gs.player2.move === MOVE_LEFT2) {
-      // tslint:disable-next-line:max-line-length
+      
       if (this.gs.player2.charX > this.mapService.rowLength - 22 && this.mapService.map[this.gs.player2.charY][this.gs.player2.charX - 1] === 1) {
         this.gs.player2.charX -= 1;
       }
     }
 
     if (this.gs.player1.move === MOVE_TOP) {
-      // tslint:disable-next-line:max-line-length
+      
       if (this.gs.player1.charY > this.mapService.colLength - 16 && this.mapService.map[this.gs.player1.charY - 1][this.gs.player1.charX] === 1) {
         this.gs.player1.charY -= 1;
       }
 
     }
     if (this.gs.player2.move === MOVE_TOP2) {
-      // tslint:disable-next-line:max-line-length
+      
       if (this.gs.player2.charY > this.mapService.colLength - 16 && this.mapService.map[this.gs.player2.charY - 1][this.gs.player2.charX] === 1) {
         this.gs.player2.charY -= 1;
       }
 
     }
     if (this.gs.player2.move === MOVE_BOT2) {
-      // tslint:disable-next-line:max-line-length
+      
       if (this.gs.player2.charY < this.mapService.colLength - 2 && this.mapService.map[this.gs.player2.charY + 1][this.gs.player2.charX] === 1) {
         this.gs.player2.charY += 1;
       }
     }
     if (this.gs.player1.move === MOVE_BOT) {
-      // tslint:disable-next-line:max-line-length
+      
       if (this.gs.player1.charY < this.mapService.colLength - 2 && this.mapService.map[this.gs.player1.charY + 1][this.gs.player1.charX] === 1) {
         this.gs.player1.charY += 1;
       }
@@ -134,23 +134,3 @@ export class GameloopService {
     this.loop();
   }
 }
-
-/* boom() {
-  const keptList = [];
-  const now = new Date();
-
-  // tslint:disable-next-line:prefer-for-of
-  for (let i = 0; i < this.gamestateservice.bombList.length; i++) {
-
-    const bomb = this.gamestateservice.bombList[i];
-    const duration = (now.getTime() - bomb.date.getTime());
-    if (duration <= 3000) {
-      if (duration >= 2500) {
-        bomb.explosion = true;
-      }
-      keptList.push(bomb);
-    }
-
-
-
-  } */
