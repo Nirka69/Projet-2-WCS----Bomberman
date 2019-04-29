@@ -12,6 +12,14 @@ export class GameloopService {
 
 
   constructor(public gs: GameStateService, private mapService: MapService) { }
+  
+  loop() {
+    this.goMove();
+    this.dropBomb();
+    this.boom();
+    requestAnimationFrame(() => this.loop());
+  }
+
 
   goMove() {
 
@@ -75,14 +83,9 @@ export class GameloopService {
 
 
   }
-
-  loop() {
-    this.goMove();
-    this.dropBomb();
-    this.boom();
-    requestAnimationFrame(() => this.loop());
-  }
-
+  
+  
+  
   dropBomb() {
     if (this.gs.player1.bomb === DROP_BOMB) {
       const bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), 1, 0);
@@ -95,14 +98,15 @@ export class GameloopService {
       this.gs.player2.bomb = 0;
     }
   }
-
-  boom() {
-    const keptList = [];
-    const keptList2 = [];
-    const now = new Date();
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.gs.player1.bombList.length; i++) {
-      const bomb = this.gs.player1.bombList[i];
+   
+  boom()
+  { 
+    let keptList = []
+    let keptList2 = []
+    let now = new Date()
+    for(let i = 0; i < this.gs.player1.bombList.length; i++)
+    {
+      let bomb = this.gs.player1.bombList[i];
       const duration = (now.getTime() - bomb.date.getTime());
       if (duration <= 3000) {
         if (duration >= 2500) {
@@ -111,15 +115,15 @@ export class GameloopService {
         keptList.push(bomb);
       }
     }
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.gs.player2.bombList.length; i++) {
-      const bomb = this.gs.player2.bombList[i];
-      const duration = (now.getTime() - bomb.date.getTime());
+    for(let i = 0; i < this.gs.player2.bombList.length; i++)
+    {
+      let bomb2 = this.gs.player2.bombList[i];
+      const duration = (now.getTime() - bomb2.date.getTime());
       if (duration <= 3000) {
         if (duration >= 2500) {
-          bomb.explosion = true;
+          bomb2.explosion = true;
         }
-        keptList2.push(bomb);
+        keptList2.push(bomb2);
       }
     }
     this.gs.player1.bombList = keptList;

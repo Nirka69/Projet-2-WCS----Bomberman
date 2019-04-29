@@ -7,14 +7,27 @@
     position: absolute;
     height: 32px;
     width: 32px;
-    background-image: url('../../assets/img/bomb.png'); 
+    background-image: url(../../assets/img/bombdelay.png);
+    animation: bombdelay 3s steps(5) 
     
 
 }
 
-.explosionB {
-    position: absolute;
+.explosionB
+{
     height: 32px;
-    width: 32px;
-    background-image: url('../../assets/img/explosion.png');
+    width: 32px;   
+    background-image: url(../../assets/img/explosion.png) !important;
+    
 }
+
+@keyframes bombdelay{
+    to {
+        background-position: 0px;
+    }
+
+    from {
+        background-position: 160px;
+    }
+}
+

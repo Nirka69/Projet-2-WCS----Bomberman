@@ -62,5 +62,8 @@ export class GameStateService {
   constructor() {
   }
 
-
+  setMove(state: number) {
+    this.move = state;
+  }
+  
 }
