@@ -117,7 +117,6 @@ export class GameloopService {
             const x = bomb.positionX + j;
             const y = bomb.positionY;
             const cell = this.mapService.map[y][x];
-
             const cellProperty = this.mapService.textures[cell];
 
             if (cellProperty.solid) {
@@ -128,11 +127,6 @@ export class GameloopService {
               break;
 
             }
-
-
-            
-
-
           }
 
           for (let h = 0; h <= bomb.power; h++) {
@@ -146,10 +140,6 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-
-           
-
-
           }
 
           for (let b = 0; b <= bomb.power; b++) {
@@ -163,10 +153,6 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-
-
-            
-
 
           }
 
