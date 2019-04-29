@@ -14,6 +14,7 @@ import { getPlayers } from '@angular/core/src/render3/players';
 export class GameloopService {
   booom: HTMLAudioElement;
   dropsound: HTMLAudioElement;
+  deadsound: HTMLAudioElement;
 
 
   constructor(public gs: GameStateService, private mapService: MapService) { }
@@ -122,7 +123,7 @@ export class GameloopService {
           this.booom = new Audio()
           this.booom.src = "/assets/Sound/BOM_11_S.wav"
           this.booom.load()
-          this.booom.play() 
+          this.booom.play()
 
           /* CASSER MUR DE DROITE */
 
@@ -140,9 +141,21 @@ export class GameloopService {
               this.mapService.map[y][x] = 1;
               break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y) {
-              alert('les couilkkjohjes a ben4444');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              alert('ben');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
             }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
+              alert('betty');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
+            }
+
           }
 
           /* CASSER MUR DU BAS */
@@ -158,8 +171,19 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y) {
-              alert('les couilkkjohjes a ben4444');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              alert('ben');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
+            }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
+              alert('betty');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
             }
           }
 
@@ -176,8 +200,19 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y) {
-              alert('les couilkkjohjes a ben4444');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              alert('ben');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
+            }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
+              alert('betty');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
             }
           }
 
@@ -194,8 +229,19 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y) {
-              alert('les couilkkjohjes a ben4444');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              alert('ben');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
+            }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
+              alert('betty');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
             }
           }
         }
@@ -217,8 +263,8 @@ export class GameloopService {
           this.booom.load()
           this.booom.play()
 
-          
-            /* CASSER MUR DE DROITE */
+
+          /* CASSER MUR DE DROITE */
 
           for (let droite = 0; droite <= bomb2.power; droite++) {
             const x = bomb2.positionX + droite;
@@ -234,8 +280,19 @@ export class GameloopService {
               this.mapService.map[y][x] = 1;
               break;
             }
-            if (this.gs.player2.charX === x && this.gs.player2.charY === y) {
-              alert('les couilkkjohjes a ben4444');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              alert('ben');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
+            }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
+              alert('betty');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
             }
           }
 
@@ -252,8 +309,19 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player2.charX === x && this.gs.player2.charY === y) {
-              alert('les couilkkjohjes a ben4444');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              alert('ben');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
+            }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
+              alert('betty');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
             }
           }
 
@@ -270,13 +338,24 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player2.charX === x && this.gs.player2.charY === y) {
-              alert('les couilkkjohjes a ben4444');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              alert('ben');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
+            }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
+              alert('betty');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
             }
           }
 
-           /* CASSER MUR DU HAUT */
-    
+          /* CASSER MUR DU HAUT */
+
           for (let haut = 0; haut <= bomb2.power; haut++) {
             const x = bomb2.positionX;
             const y = bomb2.positionY - haut;
@@ -288,8 +367,19 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player2.charX === x && this.gs.player2.charY === y) {
-              alert('les couilkkjohjes a ben4444');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              alert('ben');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
+            }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
+              alert('betty');
+              this.deadsound = new Audio()
+              this.deadsound.src = "/assets/Sound/B_A039.wav"
+              this.deadsound.load()
+              this.deadsound.play()
             }
 
           }

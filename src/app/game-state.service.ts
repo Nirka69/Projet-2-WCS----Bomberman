@@ -40,7 +40,7 @@ export class GameStateService {
 
   player2 = {
     charX: 21,
-    charY: 1,
+    charY: 15,
     move: 0,
     bomb: 0,
     bombList: [],
