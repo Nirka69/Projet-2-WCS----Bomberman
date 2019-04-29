@@ -113,11 +113,7 @@ export class MapComponent implements OnInit {
       [9, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 7]
     ];
 
-<<<<<<< HEAD
-  constructor(private gs: GameStateService) { }
-=======
   constructor(private gs : GameStateService, private gl: GameloopService) { }
->>>>>>> dev
 
   ngOnInit() {
   }
