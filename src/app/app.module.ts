@@ -8,6 +8,7 @@ import { GameComponent } from './game/game.component';
 import { CharacterComponent } from './character/character.component';
 import { GameStateService } from './game-state.service';
 import { GameloopService } from './gameloop.service';
+import { Win1Component } from './win1/win1.component';
 
 
 
@@ -16,7 +17,8 @@ import { GameloopService } from './gameloop.service';
     AppComponent,
     MapComponent,
     GameComponent,
-    CharacterComponent
+    CharacterComponent,
+    Win1Component
 
 
   ],
