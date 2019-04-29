@@ -74,12 +74,14 @@ export class GameloopService {
       if (this.gs.player1.charY < this.mapService.colLength - 2 && this.mapService.map[this.gs.player1.charY + 1][this.gs.player1.charX] === 1) {
         this.gs.player1.charY += 1;
       }
-    } else {
+    }
+    else {
       this.gs.player1.move = 0;
       this.gs.player2.move = 0;
+
     }
-    this.gs.player1.move = 0;
-    this.gs.player2.move = 0;
+
+
   }
 
 
@@ -104,6 +106,7 @@ export class GameloopService {
       this.dropsound.play()
     }
   }
+
 
 
   boom() {
@@ -138,7 +141,7 @@ export class GameloopService {
               this.mapService.map[y][x] = 1;
               break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -168,7 +171,7 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -197,7 +200,7 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -226,7 +229,7 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -277,7 +280,7 @@ export class GameloopService {
               this.mapService.map[y][x] = 1;
               break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -306,7 +309,7 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -335,7 +338,7 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -364,7 +367,7 @@ export class GameloopService {
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -378,12 +381,19 @@ export class GameloopService {
               this.deadsound.load()
               this.deadsound.play()
             }
+
           }
+
         }
+        keptList2.push(bomb2);
       }
     }
+    this.gs.player1.bombList = keptList;
+    this.gs.player2.bombList = keptList2;
   }
+
   play() {
     this.loop();
   }
+
 }
