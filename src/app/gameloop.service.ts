@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_LEFT, MOVE_BOT, DROP_BOMB, MOVE_RIGHT2, MOVE_LEFT2, MOVE_TOP2, MOVE_BOT2, DROP_BOMB2 } from './game-state.service';
 import { MapService } from './map.service';
 import { Bomb } from './models/bomb';
-import { getPlayers } from '@angular/core/src/render3/players';
 
 
 
@@ -17,14 +16,10 @@ export class GameloopService {
   dropsound: HTMLAudioElement;
   deadsound: HTMLAudioElement;
 
-  public n: number = 1;
+  
 
 
-  constructor(public gs: GameStateService, private mapService: MapService) {
-    setInterval(() => {
-      this.n = this.n + 1;
-    }, 10000);
-  }
+  constructor(public gs: GameStateService, private mapService: MapService) {}
 
   loop() {
     this.goMove();
@@ -95,7 +90,7 @@ export class GameloopService {
 
   dropBomb() {
     if (this.gs.player1.bomb === DROP_BOMB) {
-      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), this.n, 0)
+      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), 1, 0)
       this.gs.player1.bombList.push(bomb)
       this.gs.player1.bomb = 0;
       this.dropsound = new Audio()
@@ -104,7 +99,7 @@ export class GameloopService {
       this.dropsound.play()
     }
     if (this.gs.player2.bomb === DROP_BOMB2) {
-      let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), this.n, 0)
+      let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), 1, 0)
       this.gs.player2.bombList.push(bomb2)
       this.gs.player2.bomb = 0;
       this.dropsound = new Audio()

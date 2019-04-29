@@ -49,18 +49,6 @@ export class GameStateService {
 
   players = [this.player1, this.player2];
 
-
-  /* player = [
-    { id: 'perso1', src: '' },
-    { id: 'perso2', src: '' },
-    { id: 'perso3', src: '' },
-    { id: 'perso4', src: '' }
-  ];
-
-  bombNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  bombPower = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  moveSpeed = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; */
-
   constructor() {
   }
 
