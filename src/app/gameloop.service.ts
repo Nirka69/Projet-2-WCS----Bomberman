@@ -135,7 +135,7 @@ export class GameloopService {
               this.mapService.map[y][x] = 1;
               break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               alert('les couilkkjohjes a ben4444');
             }
           }
