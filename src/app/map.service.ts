@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class MapService {
 
-  floor = {
+ /*  floor = {
     textureUrl: '/assets/img/sol.jpg',
     breakable: false,
     powerUp: false,
@@ -81,9 +81,9 @@ export class MapService {
     breakable: false,
     powerUp: false,
     solid: true
-  };
+  }; */
 
-  textures = [
+  /* textures = [
     this.borderTopLeft,
     this.floor,
     this.wallFix,
@@ -96,8 +96,10 @@ export class MapService {
     this.borderBotLeft,
     this.borderLeft
   ];
+ */
 
-  map =
+
+/*  map =
     [
       [0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5],
       [10, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 6],
@@ -117,9 +119,16 @@ export class MapService {
       [10, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 6],
       [9, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 7]
     ];
+ */
+   
 
-    rowLength = this.map[0].length;
-    colLength = this.map.length;
+   /*  rowLength = this.map[0].length;
+    colLength = this.map.length; */
 
-  constructor() { }
+    
+
+/*   constructor() { }
+
+ */
+
 }
