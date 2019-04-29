@@ -13,9 +13,18 @@ import { getPlayers } from '@angular/core/src/render3/players';
 })
 export class GameloopService {
 
+ 
+  public n: number = 1;
 
-  constructor(public gs: GameStateService, private mapService: MapService) { }
 
+
+  
+  constructor(public gs: GameStateService, private mapService: MapService, ) { 
+    setInterval(() => {
+      this.n = this.n + 1;
+    }, 5000,);
+  }
+  
   loop() {
     this.goMove();
     this.dropBomb();
@@ -91,12 +100,12 @@ export class GameloopService {
 
   dropBomb() {
     if (this.gs.player1.bomb === DROP_BOMB) {
-      const bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), 1, 0);
+      const bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), this.n, 1);
       this.gs.player1.bombList.push(bomb);
       this.gs.player1.bomb = 0;
     }
     if (this.gs.player2.bomb === DROP_BOMB2) {
-      const bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), 1, 1);
+      const bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), this.n, 1);
       this.gs.player2.bombList.push(bomb2);
       this.gs.player2.bomb = 0;
     }
