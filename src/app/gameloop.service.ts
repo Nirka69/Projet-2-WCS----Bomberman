@@ -8,6 +8,7 @@ import { getPlayers } from '@angular/core/src/render3/players';
 
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,8 +17,14 @@ export class GameloopService {
   dropsound: HTMLAudioElement;
   deadsound: HTMLAudioElement;
 
+  public n: number = 1;
 
-  constructor(public gs: GameStateService, private mapService: MapService) { }
+
+  constructor(public gs: GameStateService, private mapService: MapService) {
+    setInterval(() => {
+      this.n = this.n + 1;
+    }, 10000);
+  }
 
   loop() {
     this.goMove();
@@ -88,20 +95,20 @@ export class GameloopService {
 
   dropBomb() {
     if (this.gs.player1.bomb === DROP_BOMB) {
-      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), 1, 0)
+      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), this.n, 0)
       this.gs.player1.bombList.push(bomb)
       this.gs.player1.bomb = 0;
       this.dropsound = new Audio()
-      this.dropsound.src = "/assets/Sound/BOM_BOUND.wav"
+      this.dropsound.src = "/assets/Sound/ala.mp3"
       this.dropsound.load()
       this.dropsound.play()
     }
     if (this.gs.player2.bomb === DROP_BOMB2) {
-      let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), 1, 0)
+      let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), this.n, 0)
       this.gs.player2.bombList.push(bomb2)
       this.gs.player2.bomb = 0;
       this.dropsound = new Audio()
-      this.dropsound.src = "/assets/Sound/BOM_BOUND.wav"
+      this.dropsound.src = "/assets/Sound/alafemmewav"
       this.dropsound.load()
       this.dropsound.play()
     }
@@ -141,7 +148,7 @@ export class GameloopService {
               this.mapService.map[y][x] = 1;
               break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -170,8 +177,9 @@ export class GameloopService {
             }
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -199,8 +207,9 @@ export class GameloopService {
             }
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -228,8 +237,9 @@ export class GameloopService {
             }
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -280,7 +290,7 @@ export class GameloopService {
               this.mapService.map[y][x] = 1;
               break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -308,8 +318,9 @@ export class GameloopService {
             }
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -337,8 +348,9 @@ export class GameloopService {
             }
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -366,8 +378,9 @@ export class GameloopService {
             }
             if (cellProperty.breakable) {
               this.mapService.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               alert('ben');
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
