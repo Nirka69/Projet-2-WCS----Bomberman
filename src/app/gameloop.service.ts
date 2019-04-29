@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
+// tslint:disable-next-line:max-line-length
 import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_LEFT, MOVE_BOT, DROP_BOMB, MOVE_RIGHT2, MOVE_LEFT2, MOVE_TOP2, MOVE_BOT2, DROP_BOMB2 } from './game-state.service';
 import { MapService } from './map.service';
 import { Bomb } from './models/bomb';
+import { getPlayers } from '@angular/core/src/render3/players';
+
+
 
 
 @Injectable({
@@ -118,13 +122,92 @@ export class GameloopService {
           this.booom = new Audio()
           this.booom.src = "/assets/Sound/BOM_11_S.wav"
           this.booom.load()
-          this.booom.play()
+          this.booom.play() 
+
+          /* CASSER MUR DE DROITE */
+
+          for (let droite = 0; droite <= bomb.power; droite++) {
+            const x = bomb.positionX + droite;
+            const y = bomb.positionY;
+            const cell = this.mapService.map[y][x];
+
+            const cellProperty = this.mapService.textures[cell];
+
+            if (cellProperty.solid) {
+              break;
+            }
+            if (cellProperty.breakable) {
+              this.mapService.map[y][x] = 1;
+              break;
+            }
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y) {
+              alert('les couilkkjohjes a ben4444');
+            }
+          }
+
+          /* CASSER MUR DU BAS */
+
+          for (let bas = 0; bas <= bomb.power; bas++) {
+            const x = bomb.positionX;
+            const y = bomb.positionY + bas;
+            const cell = this.mapService.map[y][x];
+            const cellProperty = this.mapService.textures[cell];
+            if (cellProperty.solid) {
+              break;
+            }
+            if (cellProperty.breakable) {
+              this.mapService.map[y][x] = 1;
+            }
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y) {
+              alert('les couilkkjohjes a ben4444');
+            }
+          }
+
+          /* CASSER MUR DE GAUCHE */
+
+          for (let gauche = 0; gauche <= bomb.power; gauche++) {
+            const x = bomb.positionX - gauche;
+            const y = bomb.positionY;
+            const cell = this.mapService.map[y][x];
+            const cellProperty = this.mapService.textures[cell];
+            if (cellProperty.solid) {
+              break;
+            }
+            if (cellProperty.breakable) {
+              this.mapService.map[y][x] = 1;
+            }
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y) {
+              alert('les couilkkjohjes a ben4444');
+            }
+          }
+
+          /* CASSER MUR DU HAUT */
+
+          for (let haut = 0; haut <= bomb.power; haut++) {
+            const x = bomb.positionX;
+            const y = bomb.positionY - haut;
+            const cell = this.mapService.map[y][x];
+            const cellProperty = this.mapService.textures[cell];
+            if (cellProperty.solid) {
+              break;
+            }
+            if (cellProperty.breakable) {
+              this.mapService.map[y][x] = 1;
+            }
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y) {
+              alert('les couilkkjohjes a ben4444');
+            }
+          }
         }
         keptList.push(bomb);
       }
     }
+
+
+    /* PLAYER 2 */
+
     for (let i = 0; i < this.gs.player2.bombList.length; i++) {
-      let bomb2 = this.gs.player2.bombList[i];
+      const bomb2 = this.gs.player2.bombList[i];
       const duration = (now.getTime() - bomb2.date.getTime());
       if (duration <= 3000) {
         if (duration >= 2500) {
@@ -133,6 +216,83 @@ export class GameloopService {
           this.booom.src = "/assets/Sound/BOM_11_S.wav"
           this.booom.load()
           this.booom.play()
+
+          
+            /* CASSER MUR DE DROITE */
+
+          for (let droite = 0; droite <= bomb2.power; droite++) {
+            const x = bomb2.positionX + droite;
+            const y = bomb2.positionY;
+            const cell = this.mapService.map[y][x];
+
+            const cellProperty = this.mapService.textures[cell];
+
+            if (cellProperty.solid) {
+              break;
+            }
+            if (cellProperty.breakable) {
+              this.mapService.map[y][x] = 1;
+              break;
+            }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y) {
+              alert('les couilkkjohjes a ben4444');
+            }
+          }
+
+          /* CASSER MUR DU BAS */
+
+          for (let bas = 0; bas <= bomb2.power; bas++) {
+            const x = bomb2.positionX;
+            const y = bomb2.positionY + bas;
+            const cell = this.mapService.map[y][x];
+            const cellProperty = this.mapService.textures[cell];
+            if (cellProperty.solid) {
+              break;
+            }
+            if (cellProperty.breakable) {
+              this.mapService.map[y][x] = 1;
+            }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y) {
+              alert('les couilkkjohjes a ben4444');
+            }
+          }
+
+          /* CASSER MUR DE GAUCHE */
+
+          for (let gauche = 0; gauche <= bomb2.power; gauche++) {
+            const x = bomb2.positionX - gauche;
+            const y = bomb2.positionY;
+            const cell = this.mapService.map[y][x];
+            const cellProperty = this.mapService.textures[cell];
+            if (cellProperty.solid) {
+              break;
+            }
+            if (cellProperty.breakable) {
+              this.mapService.map[y][x] = 1;
+            }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y) {
+              alert('les couilkkjohjes a ben4444');
+            }
+          }
+
+           /* CASSER MUR DU HAUT */
+    
+          for (let haut = 0; haut <= bomb2.power; haut++) {
+            const x = bomb2.positionX;
+            const y = bomb2.positionY - haut;
+            const cell = this.mapService.map[y][x];
+            const cellProperty = this.mapService.textures[cell];
+            if (cellProperty.solid) {
+              break;
+            }
+            if (cellProperty.breakable) {
+              this.mapService.map[y][x] = 1;
+            }
+            if (this.gs.player2.charX === x && this.gs.player2.charY === y) {
+              alert('les couilkkjohjes a ben4444');
+            }
+
+          }
 
         }
         keptList2.push(bomb2);
@@ -144,6 +304,6 @@ export class GameloopService {
 
   play() {
     this.loop();
-  } 
+  }
 
 }
