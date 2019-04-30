@@ -194,27 +194,46 @@ export class GameStateService {
     ];
   }
 
-reInitplayer(){
-  this.player1= {
-    charX: 1,
-    charY: 1,
-    move: 0,
-    bomb: 0,
-    bombList: [],
-    breakablet: true
-  };
-  this.player2= {
-    charX: 21,
-    charY: 15,
-    move: 0,
-    bomb: 0,
-    bombList: [],
-    breakablet: true
-  };
+  reInitplayer() {
+    this.player1 = {
+      charX: 1,
+      charY: 1,
+      move: 0,
+      bomb: 0,
+      bombList: [],
+      breakablet: true
+    };
+    this.player2 = {
+      charX: 21,
+      charY: 15,
+      move: 0,
+      bomb: 0,
+      bombList: [],
+      breakablet: true
+    };
+  }
+
+  counterValue=1
+  looperfire = setInterval(() => {
+    this.counterValue = this.counterValue + 1;
+    if (this.counterValue >= 5) {
+      clearInterval(this.looperfire)
+    }
+  }, 15000);
+
+
+reInitConteur(){
+  this.counterValue=1
+  this.looperfire = setInterval(() =>{
+    this.counterValue =this.counterValue +1;
+    if(this.counterValue >=5){
+      clearInterval(this.looperfire)
+    }
+  },15000); 
+
+} 
+
+constructor() {
 }
-
-
-
-  constructor() { }
 }
 

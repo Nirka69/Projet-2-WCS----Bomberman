@@ -88,6 +88,7 @@ export class GameloopService {
       this.dropsound.src = "/assets/Sound/ala.mp3"
       this.dropsound.load()
       this.dropsound.play()
+    
     }
     if (this.gs.player2.bomb === DROP_BOMB2) {
       let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), 1, 0)
@@ -111,10 +112,13 @@ export class GameloopService {
       if (duration <= 3000) {
         if (duration >= 2500) {
           bomb.explosion = true;
+          
           this.booom = new Audio()
+          this.booom.volume = .3
           this.booom.src = "/assets/Sound/BOM_11_S.wav"
           this.booom.load()
           this.booom.play()
+          
 
           /* CASSER MUR DE DROITE */
 
@@ -407,12 +411,5 @@ export class GameloopService {
    
     requestAnimationFrame(() => this.loop());
   }
-
- /*  play() {
-    this.loop();
-     
-  }
- */
-  
 
 }

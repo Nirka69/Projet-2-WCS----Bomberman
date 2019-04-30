@@ -1,22 +1,39 @@
 <div class="container-fluid backi">
+  <div class="row justify-content-center ">
+    <div class="col-11 d-flex justify-content-end">
+      <audio src="../assets/Sound/B_A012B_22K.wav" autoplay></audio>
+      <audio class="audio" id="background_audio" src="../assets/Sound/oriental.mp3" autoplay loop></audio>
+      <a class="paddingsound" onclick="document.getElementsByClassName('audio')[0].play();"><img src="../assets/img/volume-up-indicator.png" alt=""></a>
+      <a onclick="document.getElementsByClassName('audio')[0].pause();"><img src="../assets/img/volume-off-indicator.png" alt=""></a>
+
+      <!--        <a onclick="document.getElementById('background_audio').muted = true"><img src="../assets/img/soundoff.png" alt=""></a>
+ -->
+
+
+    </div>
+
+
+  </div>
   <div class="row page-header justify-content-center ">
     <div class="col-12">
       <img src="../assets/img/Logo.png" class="img-fluid animated bounceIn slower " alt="Logo Bomber wild" />
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-2 ">
+    <div class="col-12 d-flex justify-content-center">
       <img src="../assets/img/flame.png" class="flamme img-fluid animated bounceIn slower " alt="Power fire" />
-      <p id="compteur" class="typofirepower"> Fire Power : {{counterValue}}</p>
+      <p id="compteur" class="typofirepower"> Fire Power : {{gs.counterValue}}</p>
     </div>
-    
+
+
   </div>
   <div class="row justify-content-center">
-    <!-- <audio src="../assets/Sound/B_A012B_22K.wav" autoplay ></audio>
-   <audio src="../assets/Sound/06_BGM 2.mp3" autoplay loop ></audio> -->
+
 
     <app-game></app-game>
   </div>
+
+
 
   <div class="row text animated bounceIn delay-1 slower ">
     <div class="col-sm-9 ">
@@ -42,7 +59,6 @@
     <div class="col-sm-3">
       <h4>Extra</h4>
       <ul>
-        <li><strong>M</strong> &hellip; mute / unmute sound</li>
         <li><strong>Enter</strong> &hellip; stop / restart</li>
         <li><strong>Escape</strong> &hellip; menu</li>
       </ul>
