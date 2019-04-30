@@ -7,8 +7,8 @@
     position: absolute;
     height: 32px;
     width: 32px;
-    background-image: url(../../assets/img/bombdelay.png);
-    animation: bombdelay 3s steps(5) 
+    background-image: url(/assets/img/bombdelay.png);
+    animation: bombdelay 3s steps(5);
     
 
 }
@@ -17,8 +17,13 @@
 {
     height: 32px;
     width: 32px;   
-    background-image: url(../../assets/img/explosion.png) !important;
-    
+    background-image: url(/assets/img/explosion.png) !important;
+}
+
+.flame {
+    height: 32px;
+    width: 32px;
+    background-image: url(/assets/img/flame.png) !important;
 }
 
 @keyframes bombdelay{
