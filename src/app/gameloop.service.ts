@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_LEFT, MOVE_BOT, DROP_BOMB, MOVE_RIGHT2, MOVE_LEFT2, MOVE_TOP2, MOVE_BOT2, DROP_BOMB2 } from './game-state.service';
 import { MapService } from './map.service';
 import { Bomb } from './models/bomb';
-
-
+import { Router } from '@angular/router';
 
 
 
@@ -18,66 +17,55 @@ export class GameloopService {
 
   public n: number = 1;
 
+  constructor(public gs: GameStateService, private mapService: MapService, private router: Router) { }
 
-  constructor(public gs: GameStateService, private mapService: MapService) {
-    setInterval(() => {
-      this.n = this.n + 1;
-    }, 10000);
-  }
-
-  loop() {
-    this.goMove();
-    this.dropBomb();
-    this.boom();
-
-    requestAnimationFrame(() => this.loop());
-  }
+  
 
 
   goMove() {
 
     if (this.gs.player1.move === MOVE_RIGHT) {
-      if (this.gs.player1.charX < this.mapService.rowLength - 2 && this.mapService.map[this.gs.player1.charY][this.gs.player1.charX + 1] === 1) {
+      if (this.gs.player1.charX < this.gs.rowLength - 2 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX + 1] === 1) {
         this.gs.player1.charX += 1;
       }
     }
 
     if (this.gs.player2.move === MOVE_RIGHT2) {
-      if (this.gs.player2.charX < this.mapService.rowLength - 2 && this.mapService.map[this.gs.player2.charY][this.gs.player2.charX + 1] === 1) {
+      if (this.gs.player2.charX < this.gs.rowLength - 2 && this.gs.map[this.gs.player2.charY][this.gs.player2.charX + 1] === 1) {
         this.gs.player2.charX += 1;
       }
     }
 
     if (this.gs.player1.move === MOVE_LEFT) {
-      if (this.gs.player1.charX > this.mapService.rowLength - 22 && this.mapService.map[this.gs.player1.charY][this.gs.player1.charX - 1] === 1) {
+      if (this.gs.player1.charX > this.gs.rowLength - 22 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX - 1] === 1) {
         this.gs.player1.charX -= 1;
       }
     }
     if (this.gs.player2.move === MOVE_LEFT2) {
-      if (this.gs.player2.charX > this.mapService.rowLength - 22 && this.mapService.map[this.gs.player2.charY][this.gs.player2.charX - 1] === 1) {
+      if (this.gs.player2.charX > this.gs.rowLength - 22 && this.gs.map[this.gs.player2.charY][this.gs.player2.charX - 1] === 1) {
         this.gs.player2.charX -= 1;
       }
     }
 
     if (this.gs.player1.move === MOVE_TOP) {
-      if (this.gs.player1.charY > this.mapService.colLength - 16 && this.mapService.map[this.gs.player1.charY - 1][this.gs.player1.charX] === 1) {
+      if (this.gs.player1.charY > this.gs.colLength - 16 && this.gs.map[this.gs.player1.charY - 1][this.gs.player1.charX] === 1) {
         this.gs.player1.charY -= 1;
       }
 
     }
     if (this.gs.player2.move === MOVE_TOP2) {
-      if (this.gs.player2.charY > this.mapService.colLength - 16 && this.mapService.map[this.gs.player2.charY - 1][this.gs.player2.charX] === 1) {
+      if (this.gs.player2.charY > this.gs.colLength - 16 && this.gs.map[this.gs.player2.charY - 1][this.gs.player2.charX] === 1) {
         this.gs.player2.charY -= 1;
       }
 
     }
     if (this.gs.player2.move === MOVE_BOT2) {
-      if (this.gs.player2.charY < this.mapService.colLength - 2 && this.mapService.map[this.gs.player2.charY + 1][this.gs.player2.charX] === 1) {
+      if (this.gs.player2.charY < this.gs.colLength - 2 && this.gs.map[this.gs.player2.charY + 1][this.gs.player2.charX] === 1) {
         this.gs.player2.charY += 1;
       }
     }
     if (this.gs.player1.move === MOVE_BOT) {
-      if (this.gs.player1.charY < this.mapService.colLength - 2 && this.mapService.map[this.gs.player1.charY + 1][this.gs.player1.charX] === 1) {
+      if (this.gs.player1.charY < this.gs.colLength - 2 && this.gs.map[this.gs.player1.charY + 1][this.gs.player1.charX] === 1) {
         this.gs.player1.charY += 1;
       }
     }
@@ -89,8 +77,6 @@ export class GameloopService {
 
 
   }
-
-
 
   dropBomb() {
     if (this.gs.player1.bomb === DROP_BOMB && this.gs.player1.maxBomb > this.gs.player1.bombList.length) {
@@ -113,8 +99,6 @@ export class GameloopService {
     }
   }
 
-
-
   boom() {
 
     let keptList = []
@@ -136,31 +120,33 @@ export class GameloopService {
           for (let droite = 0; droite <= bomb.power; droite++) {
             const x = bomb.positionX + droite;
             const y = bomb.positionY;
-            const cell = this.mapService.map[y][x];
+            const cell = this.gs.map[y][x];
 
-
-            const cellProperty = this.mapService.textures[cell];
+            const cellProperty = this.gs.textures[cell];
 
             if (cellProperty.solid) {
               break;
             }
             if (cellProperty.breakable) {
-              this.mapService.map[y][x] = 1;
+              this.gs.map[y][x] = 1;
               break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
-              alert('ben');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+             /*  alert('ben'); */
+              
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win2']);
             }
             if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
-              alert('betty');
+              /* alert('betty'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win1']);
             }
 
           }
@@ -170,28 +156,29 @@ export class GameloopService {
           for (let bas = 0; bas <= bomb.power; bas++) {
             const x = bomb.positionX;
             const y = bomb.positionY + bas;
-            const cell = this.mapService.map[y][x];
-            const cellProperty = this.mapService.textures[cell];
+            const cell = this.gs.map[y][x];
+            const cellProperty = this.gs.textures[cell];
             if (cellProperty.solid) {
               break;
             }
             if (cellProperty.breakable) {
-              this.mapService.map[y][x] = 1;
-              break;
+              this.gs.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
-              alert('ben');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              /* alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win2']);
             }
             if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
-              alert('betty');
+              /* alert('betty'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win1']);
             }
           }
 
@@ -200,28 +187,29 @@ export class GameloopService {
           for (let gauche = 0; gauche <= bomb.power; gauche++) {
             const x = bomb.positionX - gauche;
             const y = bomb.positionY;
-            const cell = this.mapService.map[y][x];
-            const cellProperty = this.mapService.textures[cell];
+            const cell = this.gs.map[y][x];
+            const cellProperty = this.gs.textures[cell];
             if (cellProperty.solid) {
               break;
             }
             if (cellProperty.breakable) {
-              this.mapService.map[y][x] = 1;
-              break;
+              this.gs.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
-              alert('ben');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              /* alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win2']);
             }
             if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
-              alert('betty');
+              /* alert('betty'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win1']);
             }
           }
 
@@ -230,28 +218,29 @@ export class GameloopService {
           for (let haut = 0; haut <= bomb.power; haut++) {
             const x = bomb.positionX;
             const y = bomb.positionY - haut;
-            const cell = this.mapService.map[y][x];
-            const cellProperty = this.mapService.textures[cell];
+            const cell = this.gs.map[y][x];
+            const cellProperty = this.gs.textures[cell];
             if (cellProperty.solid) {
               break;
             }
             if (cellProperty.breakable) {
-              this.mapService.map[y][x] = 1;
-              break;
+              this.gs.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
-              alert('ben');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              /* alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win2']);
             }
             if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
-              alert('betty');
+              /* alert('betty'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win1']);
             }
           }
 
@@ -281,30 +270,32 @@ export class GameloopService {
           for (let droite = 0; droite <= bomb2.power; droite++) {
             const x = bomb2.positionX + droite;
             const y = bomb2.positionY;
-            const cell = this.mapService.map[y][x];
+            const cell = this.gs.map[y][x];
 
-            const cellProperty = this.mapService.textures[cell];
+            const cellProperty = this.gs.textures[cell];
 
             if (cellProperty.solid) {
               break;
             }
             if (cellProperty.breakable) {
-              this.mapService.map[y][x] = 1;
+              this.gs.map[y][x] = 1;
               break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
-              alert('ben');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+             /*  alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win2']);
             }
             if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
-              alert('betty');
+              /* alert('betty'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win1']);
             }
           }
 
@@ -313,28 +304,29 @@ export class GameloopService {
           for (let bas = 0; bas <= bomb2.power; bas++) {
             const x = bomb2.positionX;
             const y = bomb2.positionY + bas;
-            const cell = this.mapService.map[y][x];
-            const cellProperty = this.mapService.textures[cell];
+            const cell = this.gs.map[y][x];
+            const cellProperty = this.gs.textures[cell];
             if (cellProperty.solid) {
               break;
             }
             if (cellProperty.breakable) {
-              this.mapService.map[y][x] = 1;
-              break;
+              this.gs.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
-              alert('ben');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+             /*  alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win2']);
             }
             if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
-              alert('betty');
+              /* alert('betty'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win1']);
             }
           }
 
@@ -343,28 +335,29 @@ export class GameloopService {
           for (let gauche = 0; gauche <= bomb2.power; gauche++) {
             const x = bomb2.positionX - gauche;
             const y = bomb2.positionY;
-            const cell = this.mapService.map[y][x];
-            const cellProperty = this.mapService.textures[cell];
+            const cell = this.gs.map[y][x];
+            const cellProperty = this.gs.textures[cell];
             if (cellProperty.solid) {
               break;
             }
             if (cellProperty.breakable) {
-              this.mapService.map[y][x] = 1;
-              break;
+              this.gs.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
-              alert('ben');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              /* alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win2']);
             }
             if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
-              alert('betty');
+              /* alert('betty'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win1']);
             }
           }
 
@@ -373,28 +366,29 @@ export class GameloopService {
           for (let haut = 0; haut <= bomb2.power; haut++) {
             const x = bomb2.positionX;
             const y = bomb2.positionY - haut;
-            const cell = this.mapService.map[y][x];
-            const cellProperty = this.mapService.textures[cell];
+            const cell = this.gs.map[y][x];
+            const cellProperty = this.gs.textures[cell];
             if (cellProperty.solid) {
               break;
             }
             if (cellProperty.breakable) {
-              this.mapService.map[y][x] = 1;
-              break;
+              this.gs.map[y][x] = 1;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
-              alert('ben');
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+              /* alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win2']);
             }
             if (this.gs.player2.charX === x && this.gs.player2.charY === y && duration >= 2700) {
-              alert('betty');
+              /* alert('betty'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
               this.deadsound.play()
+              this.router.navigate(['/win1']);
             }
 
           }
@@ -407,7 +401,11 @@ export class GameloopService {
     this.gs.player2.bombList = keptList2;
   }
 
-  play() {
-    this.loop();
+  loop() {
+    this.goMove();
+    this.dropBomb();
+    this.boom();
+   
+    requestAnimationFrame(() => this.loop());
   }
 }
