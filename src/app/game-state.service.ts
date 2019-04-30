@@ -35,18 +35,18 @@ export class GameStateService {
     bomb: 0,
     bombList: [],
     breakablet: true,
-    bombNumber: 1
+    maxBomb: 1
   };
 
 
   player2 = {
     charX: 21,
-    charY: 1,
+    charY: 15,
     move: 0,
     bomb: 0,
     bombList: [],
     breakablet: true,
-    bombNumber: 1
+    maxBomb: 1
   };
 
   players = [this.player1, this.player2];

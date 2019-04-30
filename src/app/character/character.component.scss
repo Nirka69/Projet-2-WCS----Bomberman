@@ -134,13 +134,13 @@
 
 
 @keyframes playerStand2 {
-  to {
-      background-position: 0px;
-  }
+    to {
+        background-position: -100px;
+    }
 
-  from {
-      background-position: -100px;
-  }
+    from {
+        background-position: 0px;
+    }
 }
 
 @keyframes playerTop2{
