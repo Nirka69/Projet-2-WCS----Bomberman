@@ -1,3 +1,8 @@
+#player1, #player2
+{
+  transition: 350ms;
+}
+
 .playerSTAND{
   position: absolute;
   width: 32px;
@@ -35,7 +40,7 @@
   width: 32px;
   height: 32px;
   background-image: url('/assets/img/georgeLEFT.png');
-  animation: playerLeft 5s infinite steps(4);
+  animation: playerLeft 1.2s infinite steps(4);
 }
 
 
