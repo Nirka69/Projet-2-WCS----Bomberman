@@ -15,71 +15,85 @@ export class GameloopService {
   dropsound: HTMLAudioElement;
   deadsound: HTMLAudioElement;
 
+  public n: number;
 
-  constructor(public gs: GameStateService, private mapService: MapService, private router: Router) { }
+  constructor(public gs: GameStateService, private mapService: MapService, private router: Router) {
+    this.deadsound = new Audio()
+    this.deadsound.src = "/assets/Sound/B_A039.wav"
+    this.deadsound.load()
+  }
 
-  
+
 
 
   goMove() {
+    let now = new Date;
+    if ((now.getTime() - this.gs.player1.dateMovement.getTime()) >= 400) {
+      if (this.gs.player1.move === MOVE_RIGHT) {
+        if (this.gs.player1.charX < this.gs.rowLength - 2 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX + 1] === 1) {
+          this.gs.player1.charX += 1;
 
-    if (this.gs.player1.move === MOVE_RIGHT) {
-      if (this.gs.player1.charX < this.gs.rowLength - 2 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX + 1] === 1) {
-        this.gs.player1.charX += 1;
+          this.gs.player1.dateMovement = new Date()
+        }
+      }
+      if (this.gs.player1.move === MOVE_BOT) {
+        if (this.gs.player1.charY < this.gs.colLength - 2 && this.gs.map[this.gs.player1.charY + 1][this.gs.player1.charX] === 1) {
+          this.gs.player1.charY += 1;
+
+          this.gs.player1.dateMovement = new Date()
+        }
+      }
+      if (this.gs.player1.move === MOVE_LEFT) {
+        if (this.gs.player1.charX > this.gs.rowLength - 22 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX - 1] === 1) {
+          this.gs.player1.charX -= 1;
+
+          this.gs.player1.dateMovement = new Date()
+        }
+      }
+      if (this.gs.player1.move === MOVE_TOP) {
+        if (this.gs.player1.charY > this.gs.colLength - 16 && this.gs.map[this.gs.player1.charY - 1][this.gs.player1.charX] === 1) {
+          this.gs.player1.charY -= 1;
+
+          this.gs.player1.dateMovement = new Date()
+        }
       }
     }
 
-    if (this.gs.player2.move === MOVE_RIGHT2) {
-      if (this.gs.player2.charX < this.gs.rowLength - 2 && this.gs.map[this.gs.player2.charY][this.gs.player2.charX + 1] === 1) {
-        this.gs.player2.charX += 1;
+    if ((now.getTime() - this.gs.player2.dateMovement.getTime()) >= 400) {
+      if (this.gs.player2.move === MOVE_RIGHT2) {
+        if (this.gs.player2.charX < this.gs.rowLength - 2 && this.gs.map[this.gs.player2.charY][this.gs.player2.charX + 1] === 1) {
+          this.gs.player2.charX += 1;
+
+          this.gs.player2.dateMovement = new Date()
+        }
+      }
+      if (this.gs.player2.move === MOVE_LEFT2) {
+        if (this.gs.player2.charX > this.gs.rowLength - 22 && this.gs.map[this.gs.player2.charY][this.gs.player2.charX - 1] === 1) {
+          this.gs.player2.charX -= 1;
+
+          this.gs.player2.dateMovement = new Date()
+        }
+      }
+      if (this.gs.player2.move === MOVE_TOP2) {
+        if (this.gs.player2.charY > this.gs.colLength - 16 && this.gs.map[this.gs.player2.charY - 1][this.gs.player2.charX] === 1) {
+          this.gs.player2.charY -= 1;
+
+          this.gs.player2.dateMovement = new Date()
+        }
+      }
+      if (this.gs.player2.move === MOVE_BOT2) {
+        if (this.gs.player2.charY < this.gs.colLength - 2 && this.gs.map[this.gs.player2.charY + 1][this.gs.player2.charX] === 1) {
+          this.gs.player2.charY += 1;
+
+          this.gs.player2.dateMovement = new Date()
+        }
       }
     }
-
-    if (this.gs.player1.move === MOVE_LEFT) {
-      if (this.gs.player1.charX > this.gs.rowLength - 22 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX - 1] === 1) {
-        this.gs.player1.charX -= 1;
-      }
-    }
-    if (this.gs.player2.move === MOVE_LEFT2) {
-      if (this.gs.player2.charX > this.gs.rowLength - 22 && this.gs.map[this.gs.player2.charY][this.gs.player2.charX - 1] === 1) {
-        this.gs.player2.charX -= 1;
-      }
-    }
-
-    if (this.gs.player1.move === MOVE_TOP) {
-      if (this.gs.player1.charY > this.gs.colLength - 16 && this.gs.map[this.gs.player1.charY - 1][this.gs.player1.charX] === 1) {
-        this.gs.player1.charY -= 1;
-      }
-
-    }
-    if (this.gs.player2.move === MOVE_TOP2) {
-      if (this.gs.player2.charY > this.gs.colLength - 16 && this.gs.map[this.gs.player2.charY - 1][this.gs.player2.charX] === 1) {
-        this.gs.player2.charY -= 1;
-      }
-
-    }
-    if (this.gs.player2.move === MOVE_BOT2) {
-      if (this.gs.player2.charY < this.gs.colLength - 2 && this.gs.map[this.gs.player2.charY + 1][this.gs.player2.charX] === 1) {
-        this.gs.player2.charY += 1;
-      }
-    }
-    if (this.gs.player1.move === MOVE_BOT) {
-      if (this.gs.player1.charY < this.gs.colLength - 2 && this.gs.map[this.gs.player1.charY + 1][this.gs.player1.charX] === 1) {
-        this.gs.player1.charY += 1;
-      }
-    }
-    else {
-      this.gs.player1.move = 0;
-      this.gs.player2.move = 0;
-
-    }
-
-
   }
 
   dropBomb() {
     if (this.gs.player1.bomb === DROP_BOMB && this.gs.player1.maxBomb > this.gs.player1.bombList.length) {
-      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), this.n, 0)
+      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), 5, 0)
       this.gs.player1.bombList.push(bomb)
       this.gs.player1.bomb = 0;
       this.dropsound = new Audio()
@@ -88,7 +102,7 @@ export class GameloopService {
       this.dropsound.play()
     }
     if (this.gs.player2.bomb === DROP_BOMB2 && this.gs.player2.maxBomb > this.gs.player2.bombList.length) {
-      let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), this.n, 0)
+      let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), 5, 0)
       this.gs.player2.bombList.push(bomb2)
       this.gs.player2.bomb = 0;
       this.dropsound = new Audio()
@@ -107,7 +121,7 @@ export class GameloopService {
       let bomb = this.gs.player1.bombList[i];
       const duration = (now.getTime() - bomb.date.getTime());
       if (duration <= 3000) {
-        if (duration >= 2500) {
+        if (duration >= 2500 && !bomb.explosion) {
           bomb.explosion = true;
           this.booom = new Audio()
           this.booom.src = "/assets/Sound/BOM_11_S.wav"
@@ -120,22 +134,21 @@ export class GameloopService {
             const x = bomb.positionX + droite;
             const y = bomb.positionY;
             const cell = this.gs.map[y][x];
+            
 
             const cellProperty = this.gs.textures[cell];
+
 
             if (cellProperty.solid) {
               break;
             }
+            bomb.rightflame = droite;
             if (cellProperty.breakable) {
               this.gs.map[y][x] = 1;
               break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
-             /*  alert('ben'); */
-              
-              this.deadsound = new Audio()
-              this.deadsound.src = "/assets/Sound/B_A039.wav"
-              this.deadsound.load()
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
+              /*  alert('ben'); */
               this.deadsound.play()
               this.router.navigate(['/win2']);
             }
@@ -160,10 +173,12 @@ export class GameloopService {
             if (cellProperty.solid) {
               break;
             }
+            bomb.bottomflame = bas;
             if (cellProperty.breakable) {
               this.gs.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               /* alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -191,10 +206,12 @@ export class GameloopService {
             if (cellProperty.solid) {
               break;
             }
+            bomb.leftflame = gauche;
             if (cellProperty.breakable) {
               this.gs.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               /* alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -222,10 +239,12 @@ export class GameloopService {
             if (cellProperty.solid) {
               break;
             }
+            bomb.topflame = haut;
             if (cellProperty.breakable) {
               this.gs.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               /* alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -276,12 +295,13 @@ export class GameloopService {
             if (cellProperty.solid) {
               break;
             }
+            bomb2.rightflame = droite;
             if (cellProperty.breakable) {
               this.gs.map[y][x] = 1;
               break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
-             /*  alert('ben'); */
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
+              /*  alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
@@ -308,11 +328,13 @@ export class GameloopService {
             if (cellProperty.solid) {
               break;
             }
+            bomb2.bottomflame = bas;
             if (cellProperty.breakable) {
               this.gs.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
-             /*  alert('ben'); */
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
+              /*  alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
               this.deadsound.load()
@@ -339,10 +361,12 @@ export class GameloopService {
             if (cellProperty.solid) {
               break;
             }
+            bomb2.leftflame = gauche;
             if (cellProperty.breakable) {
               this.gs.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               /* alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -370,10 +394,12 @@ export class GameloopService {
             if (cellProperty.solid) {
               break;
             }
+            bomb2.topflame = haut;
             if (cellProperty.breakable) {
               this.gs.map[y][x] = 1;
+              break;
             }
-            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700 ) {
+            if (this.gs.player1.charX === x && this.gs.player1.charY === y && duration >= 2700) {
               /* alert('ben'); */
               this.deadsound = new Audio()
               this.deadsound.src = "/assets/Sound/B_A039.wav"
@@ -404,7 +430,7 @@ export class GameloopService {
     this.goMove();
     this.dropBomb();
     this.boom();
-   
+
     requestAnimationFrame(() => this.loop());
   }
 }
