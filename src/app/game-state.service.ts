@@ -33,8 +33,7 @@ export class GameStateService {
     charY: 1,
     move: 0,
     bomb: 0,
-    bombList: [],
-    breakablet: true
+    bombList: []
   };
 
 
@@ -43,8 +42,7 @@ export class GameStateService {
     charY: 15,
     move: 0,
     bomb: 0,
-    bombList: [],
-    breakablet: true
+    bombList: []
   };
 
   players = [this.player1, this.player2];

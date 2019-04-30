@@ -16,10 +16,9 @@ export class GameloopService {
   dropsound: HTMLAudioElement;
   deadsound: HTMLAudioElement;
 
-  
 
+  constructor(public gs: GameStateService, private mapService: MapService, ) { }
 
-  constructor(public gs: GameStateService, private mapService: MapService) {}
 
   loop() {
     this.goMove();

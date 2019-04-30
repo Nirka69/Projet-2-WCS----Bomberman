@@ -7,7 +7,7 @@ export class Bomb {
         public playerId: number,
         public explosion: boolean = false,
         public topflame: number = 1,
-        public rightflame: number = 2,
-        public bottomflame: number = 3,
-        public leftflame: number = 4){ }
+        public rightflame: number = 1,
+        public bottomflame: number = 1,
+        public leftflame: number = 1){ }
 }
