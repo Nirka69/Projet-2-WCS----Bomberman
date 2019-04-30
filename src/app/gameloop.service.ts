@@ -85,7 +85,7 @@ export class GameloopService {
       this.gs.player1.bombList.push(bomb)
       this.gs.player1.bomb = 0;
       this.dropsound = new Audio()
-      this.dropsound.src = "/assets/Sound/BOM_BOUND.wav"
+      this.dropsound.src = "/assets/Sound/ala.mp3"
       this.dropsound.load()
       this.dropsound.play()
     }
@@ -94,7 +94,7 @@ export class GameloopService {
       this.gs.player2.bombList.push(bomb2)
       this.gs.player2.bomb = 0;
       this.dropsound = new Audio()
-      this.dropsound.src = "/assets/Sound/BOM_BOUND.wav"
+      this.dropsound.src = "/assets/Sound/alafemmewav"
       this.dropsound.load()
       this.dropsound.play()
     }
