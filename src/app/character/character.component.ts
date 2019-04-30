@@ -1,5 +1,4 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-// tslint:disable-next-line:max-line-length
 import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_BOT, MOVE_LEFT, MOVE_STAND, DROP_BOMB, MOVE_TOP2, MOVE_RIGHT2, MOVE_BOT2, MOVE_LEFT2, MOVE_STAND2, DROP_BOMB2 } from '../game-state.service';
 import { GameloopService } from '../gameloop.service';
 
