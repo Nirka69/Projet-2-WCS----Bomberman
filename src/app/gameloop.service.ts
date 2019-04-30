@@ -24,7 +24,7 @@ export class GameloopService {
   
   goMove() {
     let now = new Date;
-    if( (now.getTime() - this.gs.player1.dateMovement.getTime() )  >= 400)
+    if( (now.getTime() - this.gs.player1.dateMovement.getTime() )  >= 200)
     {
       if (this.gs.player1.move === MOVE_RIGHT) {
         if (this.gs.player1.charX < this.gs.rowLength - 2 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX + 1] === 1) {
@@ -56,7 +56,7 @@ export class GameloopService {
       }
     }
     
-    if ((now.getTime() - this.gs.player2.dateMovement.getTime() )  >= 400)
+    if ((now.getTime() - this.gs.player2.dateMovement.getTime() )  >= 200)
     {
       if (this.gs.player2.move === MOVE_RIGHT2) {
         if (this.gs.player2.charX < this.gs.rowLength - 2 && this.gs.map[this.gs.player2.charY][this.gs.player2.charX + 1] === 1) {
