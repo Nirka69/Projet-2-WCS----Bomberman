@@ -1,6 +1,6 @@
-<div class="coll" *ngFor="let row of ms.map">
+<div class="coll"  *ngFor="let row of gs.map">
     <div class="coll" *ngFor="let column of row">
-        <img [src]="ms.textures[column].textureUrl" />
+        <img [src]="gs.textures[column].textureUrl"/>
     </div>
 </div>
 <div class="bomb" *ngFor="let bomb of gs.player1.bombList" [ngStyle]="{'top.px': bomb.positionY* 32, 'left.px':

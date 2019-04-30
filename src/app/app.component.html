@@ -5,9 +5,16 @@
     </div>
   </div>
   <div class="row justify-content-center">
-  <!-- <audio src="../assets/Sound/B_A012B_22K.wav" autoplay ></audio>
-   <audio src="../assets/Sound/06_BGM 2.mp3" autoplay loop ></audio> -->
+    <div class="col-2 ">
+      <img src="../assets/img/flame.png" class="flamme img-fluid animated bounceIn slower " alt="Power fire" />
+      <p id="compteur" class="typofirepower"> Fire Power : {{counterValue}}</p>
+    </div>
     
+  </div>
+  <div class="row justify-content-center">
+    <!-- <audio src="../assets/Sound/B_A012B_22K.wav" autoplay ></audio>
+   <audio src="../assets/Sound/06_BGM 2.mp3" autoplay loop ></audio> -->
+
     <app-game></app-game>
   </div>
 
@@ -50,5 +57,7 @@
     </div>
   </div>
 </div>
- 
+
+
+
 <router-outlet></router-outlet>

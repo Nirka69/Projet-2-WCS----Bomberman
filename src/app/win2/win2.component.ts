@@ -3,16 +3,17 @@ import { GameStateService } from '../game-state.service';
 import { GameloopService } from '../gameloop.service';
 
 @Component({
-  selector: 'app-win1',
-  templateUrl: './win1.component.html',
-  styleUrls: ['./win1.component.scss']
+  selector: 'app-win2',
+  templateUrl: './win2.component.html',
+  styleUrls: ['./win2.component.scss']
 })
-export class Win1Component implements OnInit {
+export class Win2Component implements OnInit {
+  
 
   constructor(public gs: GameStateService,public gameloop: GameloopService ) {}
 
   ngOnInit() {
-    this.gs.reInit();
+    this.gs.reInit( );
     this.gs.reInitplayer();
   }
 

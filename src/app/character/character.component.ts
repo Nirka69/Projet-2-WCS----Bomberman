@@ -90,10 +90,9 @@ export class CharacterComponent implements OnInit {
 
   }
 
-
   ngOnInit() {
-
-    this.gameloop.play();
-  }
+    this.gameloop.loop();
+    
+   }
 
 }
