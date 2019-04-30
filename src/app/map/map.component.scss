@@ -9,7 +9,7 @@
     height: 32px;
     width: 32px;
     background-image: url(/assets/img/bombdelay.png);
-    animation: bombdelay 3s steps(5) 
+    animation: bombdelay 3s steps(5);
     
 
 }
@@ -19,7 +19,6 @@
     height: 32px;
     width: 32px;   
     background-image: url(/assets/img/explosion.png) !important;
-    
 }
 
 .flame {

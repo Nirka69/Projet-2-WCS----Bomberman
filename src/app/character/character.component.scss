@@ -1,7 +1,7 @@
-#player1, #player2 {
+#player1, #player2
+{
   transition: 350ms;
 }
-
 
 .playerSTAND{
   position: absolute;
@@ -40,58 +40,58 @@
   width: 32px;
   height: 32px;
   background-image: url('/assets/img/georgeLEFT.png');
-  animation: playerLeft 5s infinite steps(4);
+  animation: playerLeft 1.2s infinite steps(4);
 }
 
 
 
 @keyframes playerStand {
   to {
-      background-position: 0px;
+    background-position: 0px;
   }
-
+  
   from {
-      background-position: 100px;
+    background-position: 100px;
   }
 }
 
 @keyframes playerTop{
   to {
-      background-position: 0px;
+    background-position: 0px;
   }
-
+  
   from {
-      background-position: 129px;
+    background-position: 129px;
   }
 }
 
 @keyframes playerRight {
   to {
-      background-position: 0px;
+    background-position: 0px;
   }
-
+  
   from {
-      background-position: 129px;
+    background-position: 129px;
   }
 }
 
 @keyframes playerBot {
   to {
-      background-position: 0px;
+    background-position: 0px;
   }
-
+  
   from {
-      background-position: 129px;
+    background-position: 129px;
   }
 }
 
 @keyframes playerLeft {
   to {
-      background-position: 0px;
+    background-position: 0px;
   }
-
+  
   from {
-      background-position: 129px;
+    background-position: 129px;
   }
 }
 
@@ -139,51 +139,51 @@
 
 
 @keyframes playerStand2 {
-    to {
-        background-position: -100px;
-    }
-
-    from {
-        background-position: 0px;
-    }
+  to {
+    background-position: -100px;
+  }
+  
+  from {
+    background-position: 0px;
+  }
 }
 
 @keyframes playerTop2{
   to {
-      background-position: 0px;
+    background-position: 0px;
   }
-
+  
   from {
-      background-position: -129px;
+    background-position: -129px;
   }
 }
 
 @keyframes playerRight2 {
   to {
-      background-position: 0px;
+    background-position: 0px;
   }
-
+  
   from {
-      background-position: -129px;
+    background-position: -129px;
   }
 }
 
 @keyframes playerBot2 {
   to {
-      background-position: 0px;
+    background-position: 0px;
   }
-
+  
   from {
-      background-position: -129px;
+    background-position: -129px;
   }
 }
 
 @keyframes playerLeft2 {
   to {
-      background-position: 0px;
+    background-position: 0px;
   }
-
+  
   from {
-      background-position: -129px;
+    background-position: -129px;
   }
 }

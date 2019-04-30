@@ -24,13 +24,13 @@ export const DROP_BOMB2 = 14;
 
 
 export class GameStateService {
-
-
+  
+  
   move: number;
   bomb = 0;
   bombList: Bomb[] = [];
-
-
+  
+  
   player1 = {
     charX: 1,
     charY: 1,
@@ -41,26 +41,25 @@ export class GameStateService {
     maxBomb: 1,
     dateMovement : new Date(),
     speed : 1
-    
   };
-
-
+  
+  
   player2 = {
     charX: 21,
     charY: 15,
-    move: 0,
+    move: 9,
     bomb: 0,
     bombList: [],
     breakablet: true,
-    maxBomb: 1, dateMovement : new Date(),
+    maxBomb: 1,
+    dateMovement : new Date(),
     speed : 1
-    
   };
-
+  
   players = [this.player1, this.player2];
-
-
-
+  
+  
+  
   floor = {
     textureUrl: '/assets/img/sol.jpg',
     breakable: false,
@@ -68,77 +67,77 @@ export class GameStateService {
     move: true,
     solid: false
   };
-
+  
   wallFix = {
     textureUrl: '/assets/img/mur.png',
     breakable: false,
     powerUp: false,
     solid: true
   };
-
+  
   wallDestructible = {
     textureUrl: '/assets/img/caisse_bois.jpg',
     breakable: true,
     powerUp: true,
     solid: false
   };
-
+  
   borderTopLeft = {
     textureUrl: '/assets/img/haut_gauche.jpg',
     breakable: false,
     powerUp: false,
     solid: true
   };
-
+  
   borderTop = {
     textureUrl: '/assets/img/haut.jpg',
     breakable: false,
     powerUp: false,
     solid: true
   };
-
+  
   borderTopRight = {
     textureUrl: '/assets/img/haut_droite.jpg',
     breakable: false,
     powerUp: false,
     solid: true
   };
-
+  
   borderRight = {
     textureUrl: '/assets/img/droite.jpg',
     breakable: false,
     powerUp: false,
     solid: true
   };
-
+  
   borderBotRight = {
     textureUrl: '/assets/img/bas_droite.jpg',
     breakable: false,
     powerUp: false,
     solid: true
   };
-
+  
   borderBot = {
     textureUrl: '/assets/img/bas.jpg',
     breakable: false,
     powerUp: false,
     solid: true
   };
-
+  
   borderBotLeft = {
     textureUrl: '/assets/img/bas_gauche.jpg',
     breakable: false,
     powerUp: false,
     solid: true
   };
-
+  
   borderLeft = {
     textureUrl: '/assets/img/gauche.jpg',
     breakable: false,
     powerUp: false,
     solid: true
   };
-
+  
   textures = [
     this.borderTopLeft,
     this.floor,
@@ -152,33 +151,33 @@ export class GameStateService {
     this.borderBotLeft,
     this.borderLeft
   ];
-
-
-
+  
+  
+  
   map =
-    [
-      [0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5],
-      [10, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 6],
-      [10, 1, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 1, 6],
-      [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
-      [10, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 6],
-      [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
-      [10, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 6],
-      [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
-      [10, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 6],
-      [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
-      [10, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 6],
-      [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
-      [10, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 6],
-      [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
-      [10, 1, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 1, 6],
-      [10, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 6],
-      [9, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 7]
-    ];
-
+  [
+    [0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5],
+    [10, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 6],
+    [10, 1, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 1, 6],
+    [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
+    [10, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 6],
+    [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
+    [10, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 6],
+    [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
+    [10, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 6],
+    [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
+    [10, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 6],
+    [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
+    [10, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 6],
+    [10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6],
+    [10, 1, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 3, 2, 1, 6],
+    [10, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 1, 1, 6],
+    [9, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 7]
+  ];
+  
   rowLength = this.map[0].length;
   colLength = this.map.length;
-
+  
   reInit() {
     this.map = [
       [0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5],
@@ -200,34 +199,34 @@ export class GameStateService {
       [9, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 7]
     ];
   }
-
-  reInitplayer() {
-    this.player1 = {
+  
+  reInitplayer(){
+    this.player1= {
       charX: 1,
       charY: 1,
       move: 0,
       bomb: 0,
       bombList: [],
       breakablet: true,
-      maxBomb: 1, dateMovement : new Date(),
+      maxBomb: 1,
+      dateMovement : new Date(),
       speed : 1
-
     };
-    this.player2 = {
+    this.player2= {
       charX: 21,
       charY: 15,
-      move: 0,
+      move: 9,
       bomb: 0,
       bombList: [],
       breakablet: true,
-      maxBomb: 1, dateMovement : new Date(),
+      maxBomb: 1,
+      dateMovement : new Date(),
       speed : 1
-      
     };
   }
-
-
-
+  
+  
+  
   constructor() { }
 }
 
