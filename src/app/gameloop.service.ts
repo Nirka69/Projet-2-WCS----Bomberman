@@ -17,14 +17,14 @@ export class GameloopService {
   
   public n: number = 1;
   
-  constructor(public gs: GameStateService, private mapService: MapService, private router: Router) { }
+  constructor(public gs: GameStateService, private router: Router) { }
   
   
   
   
   goMove() {
     let now = new Date;
-    if( (now.getTime() - this.gs.player1.dateMovement.getTime() )  >= 200)
+    if((now.getTime() - this.gs.player1.dateMovement.getTime() )  >= 200)
     {
       if (this.gs.player1.move === MOVE_RIGHT) {
         if (this.gs.player1.charX < this.gs.rowLength - 2 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX + 1] === 1) {
@@ -95,7 +95,7 @@ export class GameloopService {
       this.gs.player1.bombList.push(bomb)
       this.gs.player1.bomb = 0;
       this.dropsound = new Audio()
-      this.dropsound.src = "/assets/Sound/ala.mp3"
+      this.dropsound.src = ""
       this.dropsound.load()
       this.dropsound.play()
     }
@@ -104,7 +104,7 @@ export class GameloopService {
       this.gs.player2.bombList.push(bomb2)
       this.gs.player2.bomb = 0;
       this.dropsound = new Audio()
-      this.dropsound.src = "/assets/Sound/alafemmewav"
+      this.dropsound.src = ""
       this.dropsound.load()
       this.dropsound.play()
     }
@@ -403,7 +403,7 @@ export class GameloopService {
             }
             
           }
-          
+        
         }
         keptList2.push(bomb2);
       }

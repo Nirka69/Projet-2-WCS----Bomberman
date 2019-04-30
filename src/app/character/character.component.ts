@@ -82,7 +82,7 @@ export class CharacterComponent implements OnInit {
       console.log('stop');
       this.gs.player1.move = MOVE_STAND;
     }
-    if (event.keyCode === 65 || event.keyCode === 68 || event.keyCode === 87 || event.keyCode === 81) {
+    if (event.keyCode === 90 || event.keyCode === 68 || event.keyCode === 83 || event.keyCode === 81) {
       console.log('stop');
       this.gs.player2.move = MOVE_STAND2;
     }
