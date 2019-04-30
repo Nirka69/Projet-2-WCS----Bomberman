@@ -121,7 +121,7 @@ export class GameloopService {
       let bomb = this.gs.player1.bombList[i];
       const duration = (now.getTime() - bomb.date.getTime());
       if (duration <= 3000) {
-        if (duration >= 2500 && !bomb.explosion) {
+        if (duration >= 2800 && !bomb.explosion) {
           bomb.explosion = true;
           this.booom = new Audio()
           this.booom.src = "/assets/Sound/BOM_11_S.wav"
@@ -275,7 +275,7 @@ export class GameloopService {
       const bomb2 = this.gs.player2.bombList[i];
       const duration = (now.getTime() - bomb2.date.getTime());
       if (duration <= 3000) {
-        if (duration >= 2500) {
+        if (duration >= 2800 && !bomb2.explosion) {
           bomb2.explosion = true;
           this.booom = new Audio()
           this.booom.src = "/assets/Sound/BOM_11_S.wav"
