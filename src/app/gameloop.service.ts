@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-// tslint:disable-next-line:max-line-length
 import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_LEFT, MOVE_BOT, DROP_BOMB, MOVE_RIGHT2, MOVE_LEFT2, MOVE_TOP2, MOVE_BOT2, DROP_BOMB2 } from './game-state.service';
 import { MapService } from './map.service';
 import { Bomb } from './models/bomb';
-
 import { Router } from '@angular/router';
 
 
@@ -17,6 +15,7 @@ export class GameloopService {
   dropsound: HTMLAudioElement;
   deadsound: HTMLAudioElement;
 
+  public n: number = 1;
 
   constructor(public gs: GameStateService, private mapService: MapService, private router: Router) { }
 
@@ -80,8 +79,8 @@ export class GameloopService {
   }
 
   dropBomb() {
-    if (this.gs.player1.bomb === DROP_BOMB) {
-      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), 1, 0)
+    if (this.gs.player1.bomb === DROP_BOMB && this.gs.player1.maxBomb > this.gs.player1.bombList.length) {
+      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), this.n, 0)
       this.gs.player1.bombList.push(bomb)
       this.gs.player1.bomb = 0;
       this.dropsound = new Audio()
@@ -89,8 +88,8 @@ export class GameloopService {
       this.dropsound.load()
       this.dropsound.play()
     }
-    if (this.gs.player2.bomb === DROP_BOMB2) {
-      let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), 1, 0)
+    if (this.gs.player2.bomb === DROP_BOMB2 && this.gs.player2.maxBomb > this.gs.player2.bombList.length) {
+      let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), this.n, 0)
       this.gs.player2.bombList.push(bomb2)
       this.gs.player2.bomb = 0;
       this.dropsound = new Audio()
@@ -244,8 +243,10 @@ export class GameloopService {
               this.router.navigate(['/win1']);
             }
           }
+
         }
         keptList.push(bomb);
+
       }
     }
 
@@ -407,12 +408,4 @@ export class GameloopService {
    
     requestAnimationFrame(() => this.loop());
   }
-
- /*  play() {
-    this.loop();
-     
-  }
- */
-  
-
 }

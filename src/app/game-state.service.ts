@@ -37,7 +37,8 @@ export class GameStateService {
     move: 0,
     bomb: 0,
     bombList: [],
-    breakablet: true
+    breakablet: true,
+    maxBomb: 1
   };
 
 
@@ -47,7 +48,8 @@ export class GameStateService {
     move: 0,
     bomb: 0,
     bombList: [],
-    breakablet: true
+    breakablet: true,
+    maxBomb: 1
   };
 
   players = [this.player1, this.player2];
@@ -201,7 +203,8 @@ reInitplayer(){
     move: 0,
     bomb: 0,
     bombList: [],
-    breakablet: true
+    breakablet: true,
+    maxBomb: 1
   };
   this.player2= {
     charX: 21,
@@ -209,7 +212,8 @@ reInitplayer(){
     move: 0,
     bomb: 0,
     bombList: [],
-    breakablet: true
+    breakablet: true,
+    maxBomb: 1
   };
 }
 
