@@ -236,7 +236,7 @@ test = [
     };
   }
 
-  counterValue=1
+  counterValue:number=1
   looperfire = setInterval(() => {
     this.counterValue = this.counterValue + 1;
     if (this.counterValue >= 5) {
