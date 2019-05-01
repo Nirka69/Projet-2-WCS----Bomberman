@@ -42,7 +42,11 @@ export class GameloopService {
       if (this.gs.player1.move === MOVE_LEFT) {
         if (this.gs.player1.charX > this.gs.rowLength - 22 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX - 1] === 1) {
           this.gs.player1.charX -= 1;
+
+          this.gs.player1.dateMovement = new Date()
         }
+
+        
       }
       if (this.gs.player1.move === MOVE_TOP) {
         if (this.gs.player1.charY > this.gs.colLength - 16 && this.gs.map[this.gs.player1.charY - 1][this.gs.player1.charX] === 1) {
