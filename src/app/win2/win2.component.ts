@@ -15,6 +15,7 @@ export class Win2Component implements OnInit {
   ngOnInit() {
     this.gs.reInit( );
     this.gs.reInitplayer();
+    this.gs.reInitConteur(); 
   }
 
 }

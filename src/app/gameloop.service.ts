@@ -22,7 +22,7 @@ export class GameloopService {
 
   goMove() {
     let now = new Date;
-    if ((now.getTime() - this.gs.player1.dateMovement.getTime()) >= 90) {
+    if ((now.getTime() - this.gs.player1.dateMovement.getTime()) >= 200) {
       if (this.gs.player1.move === MOVE_RIGHT) {
         if (this.gs.player1.charX < this.gs.rowLength - 2 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX + 1] === 1) {
           this.gs.player1.charX += 1;
@@ -40,7 +40,11 @@ export class GameloopService {
       if (this.gs.player1.move === MOVE_LEFT) {
         if (this.gs.player1.charX > this.gs.rowLength - 22 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX - 1] === 1) {
           this.gs.player1.charX -= 1;
+
+          this.gs.player1.dateMovement = new Date()
         }
+
+        
       }
       if (this.gs.player1.move === MOVE_TOP) {
         if (this.gs.player1.charY > this.gs.colLength - 16 && this.gs.map[this.gs.player1.charY - 1][this.gs.player1.charX] === 1) {
@@ -91,6 +95,7 @@ export class GameloopService {
       this.dropsound.src = "/assets/Sound/ala.mp3"
       this.dropsound.load()
       this.dropsound.play()
+    
     }
     if (this.gs.player2.bomb === DROP_BOMB2 && this.gs.player2.maxBomb > this.gs.player2.bombList.length) {
       let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), 5, 0)
@@ -114,7 +119,9 @@ export class GameloopService {
       if (duration <= 3000) {
         if (duration >= 2800 && !bomb.explosion) {
           bomb.explosion = true;
+          
           this.booom = new Audio()
+          this.booom.volume = .3
           this.booom.src = "/assets/Sound/BOM_11_S.wav"
           this.booom.load()
           this.booom.play()
