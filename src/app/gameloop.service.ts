@@ -88,7 +88,7 @@ export class GameloopService {
   }
   dropBomb() {
     if (this.gs.player1.bomb === DROP_BOMB && this.gs.player1.maxBomb > this.gs.player1.bombList.length) {
-      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), 5, 0)
+      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), this.gs.counterValue, 0)
       this.gs.player1.bombList.push(bomb)
       this.gs.player1.bomb = 0;
       this.dropsound = new Audio()
