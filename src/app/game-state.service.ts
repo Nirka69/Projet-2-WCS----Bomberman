@@ -58,8 +58,6 @@ export class GameStateService {
   
   players = [this.player1, this.player2];
   
-  
-  
   floor = {
     textureUrl: '/assets/img/sol.jpg',
     breakable: false,
@@ -138,6 +136,19 @@ export class GameStateService {
     solid: true
   };
   
+  pikup = {
+    textureUrl: '/assets/img/power.jpg',
+    breakable: true,
+    powerUp: true,
+    move: true,
+    solid: true
+  };
+
+test = [
+  this.floor,
+  this.pikup
+]
+
   textures = [
     this.borderTopLeft,
     this.floor,

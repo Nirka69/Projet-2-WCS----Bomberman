@@ -15,11 +15,9 @@ export class GameloopService {
   dropsound: HTMLAudioElement;
   deadsound: HTMLAudioElement;
 
-  public n: number = 1;
-
-  constructor(public gs: GameStateService, private mapService: MapService, private router: Router) { }
-
-
+  
+  
+  constructor(public gs: GameStateService, private mapService: MapService, private router: Router) {}
 
 
   goMove() {
