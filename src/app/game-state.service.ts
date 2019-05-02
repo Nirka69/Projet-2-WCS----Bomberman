@@ -207,12 +207,12 @@ export class GameStateService {
       move: 0,
       bomb: 0,
       bombList: [],
-      breakablet: true,
       maxBomb: 1,
       dateMovement : new Date(),
-      speed : 1
+      speed : 1,
+      breakablet: true
     };
-    this.player2= {
+    this.player2 = {
       charX: 21,
       charY: 15,
       move: 9,
@@ -224,9 +224,28 @@ export class GameStateService {
       speed : 1
     };
   }
-  
-  
-  
-  constructor() { }
+
+  counterValue:number=1
+  looperfire = setInterval(() => {
+    this.counterValue = this.counterValue + 1;
+    if (this.counterValue >= 5) {
+      clearInterval(this.looperfire)
+    }
+  }, 15000);
+
+
+reInitConteur(){
+  this.counterValue=1
+  this.looperfire = setInterval(() =>{
+    this.counterValue =this.counterValue +1;
+    if(this.counterValue >=5){
+      clearInterval(this.looperfire)
+    }
+  },15000); 
+
+} 
+
+constructor() {
+}
 }
 

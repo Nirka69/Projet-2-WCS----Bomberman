@@ -42,9 +42,10 @@ export class GameloopService {
       if (this.gs.player1.move === MOVE_LEFT) {
         if (this.gs.player1.charX > this.gs.rowLength - 22 && this.gs.map[this.gs.player1.charY][this.gs.player1.charX - 1] === 1) {
           this.gs.player1.charX -= 1;
-          
           this.gs.player1.dateMovement = new Date()
         }
+
+        
       }
       if (this.gs.player1.move === MOVE_TOP) {
         if (this.gs.player1.charY > this.gs.colLength - 16 && this.gs.map[this.gs.player1.charY - 1][this.gs.player1.charX] === 1) {
@@ -88,16 +89,17 @@ export class GameloopService {
   }
   dropBomb() {
     if (this.gs.player1.bomb === DROP_BOMB && this.gs.player1.maxBomb > this.gs.player1.bombList.length) {
-      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(), 5, 0)
+      let bomb = new Bomb(this.gs.player1.charX, this.gs.player1.charY, new Date(),this.gs.counterValue ,0)
       this.gs.player1.bombList.push(bomb)
       this.gs.player1.bomb = 0;
       this.dropsound = new Audio()
       this.dropsound.src = ""
       this.dropsound.load()
       this.dropsound.play()
+    
     }
     if (this.gs.player2.bomb === DROP_BOMB2 && this.gs.player2.maxBomb > this.gs.player2.bombList.length) {
-      let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), 5, 0)
+      let bomb2 = new Bomb(this.gs.player2.charX, this.gs.player2.charY, new Date(), this.gs.counterValue , 0)
       this.gs.player2.bombList.push(bomb2)
       this.gs.player2.bomb = 0;
       this.dropsound = new Audio()
@@ -118,7 +120,9 @@ export class GameloopService {
       if (duration <= 3000) {
         if (duration >= 2800 && !bomb.explosion) {
           bomb.explosion = true;
+          
           this.booom = new Audio()
+          this.booom.volume = .3
           this.booom.src = "/assets/Sound/BOM_11_S.wav"
           this.booom.load()
           this.booom.play()
