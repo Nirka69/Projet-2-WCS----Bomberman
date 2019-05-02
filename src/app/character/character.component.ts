@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_BOT, MOVE_LEFT, MOVE_STAND, DROP_BOMB, MOVE_TOP2, MOVE_RIGHT2, MOVE_BOT2, MOVE_LEFT2, MOVE_STAND2, DROP_BOMB2 } from '../game-state.service';
+import { GameStateService, MOVE_TOP, MOVE_RIGHT, MOVE_BOT, MOVE_LEFT, MOVE_STAND, DROP_BOMB, MOVE_TOP2, MOVE_RIGHT2, MOVE_BOT2, MOVE_LEFT2, MOVE_STAND2, DROP_BOMB2, PAUSED } from '../game-state.service';
 import { GameloopService } from '../gameloop.service';
 
 @Component({
@@ -45,6 +45,10 @@ export class CharacterComponent implements OnInit {
       console.log('bomb');
       this.gs.player1.bomb = DROP_BOMB;
     }
+    if (event.keyCode === 13) {
+      console.log('pause');
+      this.gs.player1.pause = PAUSED;
+    }
     
 
     
@@ -71,6 +75,10 @@ export class CharacterComponent implements OnInit {
     if (event.keyCode === 16) {
       console.log('bomb');
       this.gs.player2.bomb = DROP_BOMB2;
+    }
+    if (event.keyCode === 13) {
+      console.log('pause');
+      this.gs.player2.pause = PAUSED;
     }
     
   }

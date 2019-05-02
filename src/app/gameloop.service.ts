@@ -92,7 +92,7 @@ export class GameloopService {
       this.gs.player1.bombList.push(bomb)
       this.gs.player1.bomb = 0;
       this.dropsound = new Audio()
-      this.dropsound.src = "/assets/Sound/ala.mp3"
+      this.dropsound.src = "/assets/Sound/BOM_BOUND.wav"
       this.dropsound.load()
       this.dropsound.play()
     
@@ -102,7 +102,7 @@ export class GameloopService {
       this.gs.player2.bombList.push(bomb2)
       this.gs.player2.bomb = 0;
       this.dropsound = new Audio()
-      this.dropsound.src = "/assets/Sound/alafemmewav"
+      this.dropsound.src = "/assets/Sound/BOM_BOUND.wav"
       this.dropsound.load()
       this.dropsound.play()
     }
@@ -121,8 +121,7 @@ export class GameloopService {
           bomb.explosion = true;
           
           this.booom = new Audio()
-          this.booom.volume = .3
-          this.booom.src = "/assets/Sound/BOM_11_S.wav"
+          this.booom.src = "/assets/Sound/BOM_11_M.wav"
           this.booom.load()
           this.booom.play()
 
@@ -278,7 +277,7 @@ export class GameloopService {
         if (duration >= 2800 && !bomb2.explosion) {
           bomb2.explosion = true;
           this.booom = new Audio()
-          this.booom.src = "/assets/Sound/BOM_11_S.wav"
+          this.booom.src = "/assets/Sound/BOM_11_M.wav"
           this.booom.load()
           this.booom.play()
 
