@@ -13,10 +13,11 @@ export class MapComponent implements OnInit {
 
 
 
+
   constructor(private gs: GameStateService, private gl: GameloopService, private ms: MapService) { }
 
   ngOnInit() {
-    
+
   }
 
 }
