@@ -15,7 +15,6 @@ export class AppComponent {
 constructor(public gs: GameStateService,public gameloop: GameloopService ){
   }
 
- 
   ngOnInit() {
  
 

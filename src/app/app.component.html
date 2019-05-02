@@ -1,4 +1,4 @@
-<div class="container-fluid backi">
+<div id="bodygeneral" class="container-fluid backi">
   <div class="row justify-content-center ">
     <div class="col-11 d-flex justify-content-end">
       <audio src="../assets/Sound/B_A012B_22K.wav" autoplay></audio>
@@ -57,7 +57,7 @@
       <h4>Extra</h4>
       <ul>
         <li><strong>Enter</strong> &hellip; stop / restart</li>
-        <li><strong>Escape</strong> &hellip; menu</li>
+        
       </ul>
 
     </div>
@@ -71,6 +71,7 @@
   </div>
 </div>
 
+<button onclick="document.getElementsById('bodygeneral')[0].pause();">fucking pause</button>
 
 
 <router-outlet></router-outlet>
