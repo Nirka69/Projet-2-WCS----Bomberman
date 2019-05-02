@@ -17,6 +17,7 @@ export const MOVE_RIGHT2 = 11;
 export const MOVE_BOT2 = 12;
 export const MOVE_LEFT2 = 13;
 export const DROP_BOMB2 = 14;
+export const PAUSED = 15;
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,8 @@ export class GameStateService {
     breakablet: true,
     maxBomb: 1,
     dateMovement : new Date(),
-    speed : 1
+    speed : 1,
+    pause: 0
   };
   
   
@@ -53,12 +55,11 @@ export class GameStateService {
     breakablet: true,
     maxBomb: 1,
     dateMovement : new Date(),
-    speed : 1
+    speed : 1,
+    pause: 0
   };
   
   players = [this.player1, this.player2];
-  
-  
   
   floor = {
     textureUrl: '/assets/img/sol.jpg',
@@ -138,6 +139,19 @@ export class GameStateService {
     solid: true
   };
   
+  pikup = {
+    textureUrl: '/assets/img/power.jpg',
+    breakable: true,
+    powerUp: true,
+    move: true,
+    solid: true
+  };
+
+test = [
+  this.floor,
+  this.pikup
+]
+
   textures = [
     this.borderTopLeft,
     this.floor,
@@ -210,7 +224,8 @@ export class GameStateService {
       maxBomb: 1,
       dateMovement : new Date(),
       speed : 1,
-      breakablet: true
+      breakablet: true,
+      pause: 0
     };
     this.player2 = {
       charX: 21,
@@ -221,7 +236,8 @@ export class GameStateService {
       breakablet: true,
       maxBomb: 1,
       dateMovement : new Date(),
-      speed : 1
+      speed : 1,
+      pause: 0
     };
   }
 
