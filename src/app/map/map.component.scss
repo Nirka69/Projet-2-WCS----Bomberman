@@ -1,3 +1,4 @@
+
 .coll{
     display: inline;
 }
@@ -8,7 +9,7 @@
     height: 32px;
     width: 32px;
     background-image: url(/assets/img/bombdelay.png);
-    animation: bombdelay 3s steps(5) 
+    animation: bombdelay 3s steps(5);
     
 
 }
@@ -18,14 +19,17 @@
     height: 32px;
     width: 32px;   
     background-image: url(/assets/img/explosion.png) !important;
-    
 }
 
 .flame {
+    position: absolute;
     height: 32px;
-    width: 32px;
+    width: 32px; 
+    background-size: 32px 32px;
     background-image: url(/assets/img/flame.png) !important;
 }
+
+
 
 @keyframes bombdelay{
     to {

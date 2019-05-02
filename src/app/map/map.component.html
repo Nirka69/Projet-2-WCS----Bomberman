@@ -5,8 +5,23 @@
 </div>
 <div class="bomb" *ngFor="let bomb of gs.player1.bombList" [ngStyle]="{'top.px': bomb.positionY* 32, 'left.px':
 bomb.positionX * 32}" [ngClass]="{'explosionB': bomb.explosion}">
+
+    <div *ngIf="bomb.explosion">
+        <div class="flame" style="left: 100%;" [ngStyle]="{width: ''+100 * bomb.rightflame + '%'}"></div>
+        <div class="flame" style="right: 100%;" [ngStyle]="{width: ''+100 * bomb.leftflame + '%'}"></div>
+        <div class="flame" style="bottom: 100%;" [ngStyle]="{height: ''+100 * bomb.topflame + '%'}"></div>
+        <div class="flame" style="top: 100%;" [ngStyle]="{height: ''+100 * bomb.bottomflame + '%'}"></div>
+    </div>
+
+
 </div>
 
 <div class="bomb" *ngFor="let bomb of gs.player2.bombList" [ngStyle]="{'top.px': bomb.positionY* 32, 'left.px':
 bomb.positionX * 32}" [ngClass]="{'explosionB': bomb.explosion}">
+<div *ngIf="bomb.explosion">
+    <div class="flame" style="left: 100%;" [ngStyle]="{width: ''+100 * bomb.rightflame + '%'}"></div>
+    <div class="flame" style="right: 100%;" [ngStyle]="{width: ''+100 * bomb.leftflame + '%'}"></div>
+    <div class="flame" style="bottom: 100%;" [ngStyle]="{height: ''+100 * bomb.topflame + '%'}"></div>
+    <div class="flame" style="top: 100%;" [ngStyle]="{height: ''+100 * bomb.bottomflame + '%'}"></div>
+</div>
 </div>
