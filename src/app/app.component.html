@@ -1,13 +1,38 @@
 <div class="container-fluid backi">
+  <div class="row justify-content-center ">
+    <div class="col-11 d-flex justify-content-end">
+      <audio src="../assets/Sound/B_A012B_22K.wav" autoplay></audio>
+      <audio class="audio" id="background_audio" src="../assets/Sound/06_BGM 2.mp3" autoplay loop></audio>
+      <a class="paddingsound" onclick="document.getElementsByClassName('audio')[0].play();"><img src="../assets/img/volume-up-indicator.png" alt=""></a>
+      <a onclick="document.getElementsByClassName('audio')[0].pause();"><img src="../assets/img/volume-off-indicator.png" alt=""></a>
+
+
+    </div>
+
+
+  </div>
   <div class="row page-header justify-content-center ">
     <div class="col-12">
       <img src="../assets/img/Logo.png" class="img-fluid animated bounceIn slower " alt="Logo Bomber wild" />
     </div>
   </div>
   <div class="row justify-content-center">
-    <!-- sound    <audio src="../assets/Sound/B_A012B_22K.wav" autoplay ></audio> -->
+
+    <div class="col-12 d-flex justify-content-center">
+      <img src="../assets/img/flame.png" class="flamme img-fluid animated bounceIn slower " alt="Power fire" />
+      <p id="compteur" class="typofirepower"> Fire Power : {{gs.counterValue}}</p>
+    </div>
+
+
+  </div>
+  <div class="row justify-content-center">
+
+
     <app-game></app-game>
   </div>
+
+
+
 
   <div class="row text animated bounceIn delay-1 slower ">
     <div class="col-sm-9 ">
@@ -20,22 +45,20 @@
       <h4>Player 1</h4>
       <ul>
         <li><strong>Arrow keys</strong> &hellip; move</li>
-        <li><strong>Spacebar / alt</strong> &hellip; plant the bomb</li>
+        <li><strong>Spacebar</strong> &hellip; plant the bomb</li>
       </ul>
     </div>
     <div class="col-sm-3">
       <h4>Player 2</h4>
       <ul>
-        <li><strong>W, A, S, D</strong> &hellip; move</li>
+        <li><strong>Z, D, S, Q</strong> &hellip; move</li>
         <li><strong>Shift</strong> &hellip; plant the bomb</li>
       </ul>
     </div>
     <div class="col-sm-3">
       <h4>Extra</h4>
       <ul>
-        <li><strong>M</strong> &hellip; mute / unmute sound</li>
         <li><strong>Enter</strong> &hellip; stop / restart</li>
-        <li><strong>Escape</strong> &hellip; menu</li>
       </ul>
 
     </div>
@@ -48,5 +71,7 @@
     </div>
   </div>
 </div>
+
+
 
 <router-outlet></router-outlet>
